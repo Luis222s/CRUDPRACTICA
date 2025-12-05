@@ -126,5 +126,10 @@ namespace CapaPresentacion
                 MessageBox.Show("Error de conexión: " + ex.Message);
             }
         }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
