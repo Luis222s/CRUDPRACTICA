@@ -45,6 +45,14 @@ namespace CRUDPRACTICA
             path3.AddArc(0, Btn_Peli4.Height - radius, radius, radius, 90, 90);
             path3.CloseFigure();
             Btn_Peli4.Region = new Region(path);
+
+            GraphicsPath path4 = new GraphicsPath();
+            path4.AddArc(0, 0, radius, radius, 180, 90);
+            path4.AddArc(button1.Width - radius, 0, radius, radius, 270, 90);
+            path4.AddArc(button1.Width - radius, button1.Height - radius, radius, radius, 0, 90);
+            path4.AddArc(0, button1.Height - radius, radius, radius, 90, 90);
+            path4.CloseFigure();
+            button1.Region = new Region(path);
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -107,6 +115,13 @@ namespace CRUDPRACTICA
         private void Cartelera_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Acercade go = new Acercade();
+            go.Show();
+            this.Hide();
         }
     }
 }

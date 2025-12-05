@@ -1,3 +1,5 @@
+using CapaPresentacion;
+
 namespace CRUDPRACTICA
 {
     internal static class Program
@@ -11,7 +13,7 @@ namespace CRUDPRACTICA
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Cartelera());
+            Application.Run(new Login());
         }
     }
 }

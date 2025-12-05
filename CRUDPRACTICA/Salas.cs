@@ -40,26 +40,6 @@ namespace CapaPresentacion
 
         }
 
-        public void Sillas()
-        {
-            if (comboBox.SelectedIndex > 0)
-            {
-                comboBox1.Enabled = false; comboBox2.Enabled = false; comboBox3.Enabled = false;
-            }
-            if (comboBox1.SelectedIndex > 0)
-            {
-                comboBox.Enabled = false; comboBox2.Enabled = false; comboBox3.Enabled = false;
-            }
-            if (comboBox2.SelectedIndex > 0)
-            {
-                comboBox.Enabled = false; comboBox1.Enabled = false; comboBox3.Enabled = false;
-            }
-            if (comboBox3.SelectedIndex > 0)
-            {
-                comboBox.Enabled = false; comboBox2.Enabled = false; comboBox1.Enabled = false;
-            }
-
-        }
 
         private void Btn_Confirmar_Click(object sender, EventArgs e)
         {
@@ -89,22 +69,106 @@ namespace CapaPresentacion
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Sillas();
+            ComboBox activo = null;
+
+            if (comboBox.SelectedIndex > 0) activo = comboBox;
+            else if (comboBox1.SelectedIndex > 0) activo = comboBox1;
+            else if (comboBox2.SelectedIndex > 0) activo = comboBox2;
+            else if (comboBox3.SelectedIndex > 0) activo = comboBox3;
+
+            // Si ninguno está seleccionado (todos en 0) → activar todos
+            if (activo == null)
+            {
+                comboBox.Enabled = true;
+                comboBox1.Enabled = true;
+                comboBox2.Enabled = true;
+                comboBox3.Enabled = true;
+                return;
+            }
+
+            // Si hay uno seleccionado → desactivar los demás
+            comboBox.Enabled = (activo == comboBox);
+            comboBox1.Enabled = (activo == comboBox1);
+            comboBox2.Enabled = (activo == comboBox2);
+            comboBox3.Enabled = (activo == comboBox3);
         }
 
         private void comboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Sillas();
+            ComboBox activo = null;
+
+            if (comboBox.SelectedIndex > 0) activo = comboBox;
+            else if (comboBox1.SelectedIndex > 0) activo = comboBox1;
+            else if (comboBox2.SelectedIndex > 0) activo = comboBox2;
+            else if (comboBox3.SelectedIndex > 0) activo = comboBox3;
+
+            // Si ninguno está seleccionado (todos en 0) → activar todos
+            if (activo == null)
+            {
+                comboBox.Enabled = true;
+                comboBox1.Enabled = true;
+                comboBox2.Enabled = true;
+                comboBox3.Enabled = true;
+                return;
+            }
+
+            // Si hay uno seleccionado → desactivar los demás
+            comboBox.Enabled = (activo == comboBox);
+            comboBox1.Enabled = (activo == comboBox1);
+            comboBox2.Enabled = (activo == comboBox2);
+            comboBox3.Enabled = (activo == comboBox3);
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Sillas();
+            ComboBox activo = null;
+
+            if (comboBox.SelectedIndex > 0) activo = comboBox;
+            else if (comboBox1.SelectedIndex > 0) activo = comboBox1;
+            else if (comboBox2.SelectedIndex > 0) activo = comboBox2;
+            else if (comboBox3.SelectedIndex > 0) activo = comboBox3;
+
+            // Si ninguno está seleccionado (todos en 0) → activar todos
+            if (activo == null)
+            {
+                comboBox.Enabled = true;
+                comboBox1.Enabled = true;
+                comboBox2.Enabled = true;
+                comboBox3.Enabled = true;
+                return;
+            }
+
+            // Si hay uno seleccionado → desactivar los demás
+            comboBox.Enabled = (activo == comboBox);
+            comboBox1.Enabled = (activo == comboBox1);
+            comboBox2.Enabled = (activo == comboBox2);
+            comboBox3.Enabled = (activo == comboBox3);
         }
 
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Sillas();
+            ComboBox activo = null;
+
+            if (comboBox.SelectedIndex > 0) activo = comboBox;
+            else if (comboBox1.SelectedIndex > 0) activo = comboBox1;
+            else if (comboBox2.SelectedIndex > 0) activo = comboBox2;
+            else if (comboBox3.SelectedIndex > 0) activo = comboBox3;
+
+            // Si ninguno está seleccionado (todos en 0) → activar todos
+            if (activo == null)
+            {
+                comboBox.Enabled = true;
+                comboBox1.Enabled = true;
+                comboBox2.Enabled = true;
+                comboBox3.Enabled = true;
+                return;
+            }
+
+            // Si hay uno seleccionado → desactivar los demás
+            comboBox.Enabled = (activo == comboBox);
+            comboBox1.Enabled = (activo == comboBox1);
+            comboBox2.Enabled = (activo == comboBox2);
+            comboBox3.Enabled = (activo == comboBox3);
         }
     }
 }

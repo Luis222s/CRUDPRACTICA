@@ -42,7 +42,7 @@ namespace CapaPresentacion
 
         private void Btn_Confirmar1_Click(object sender, EventArgs e)
         {
-            if (cmb_Tickets1.SelectedItem == null || cmb_Horario1.SelectedItem == null || comboBox3.SelectedItem == null || comboBox4.SelectedItem == null || comboBox5.SelectedItem == null || comboBox6.SelectedItem == null)
+            if (cmb_Tickets1.SelectedItem == null || cmb_entrada1.SelectedItem == null || cmb_Horario1.SelectedItem == null || comboBox3.SelectedItem == null || comboBox4.SelectedItem == null || comboBox5.SelectedItem == null || comboBox6.SelectedItem == null)
             {
                 MessageBox.Show("Rellena todos los campos para continuar.","Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;

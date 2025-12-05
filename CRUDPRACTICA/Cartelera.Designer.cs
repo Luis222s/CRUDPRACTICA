@@ -41,6 +41,7 @@
             Btn_Minimizar = new PictureBox();
             Btn_Cerrar = new PictureBox();
             panel1 = new Panel();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -212,6 +213,24 @@
             panel1.TabIndex = 15;
             panel1.MouseDown += panel1_MouseDown;
             // 
+            // button1
+            // 
+            button1.BackColor = SystemColors.ActiveCaptionText;
+            button1.Cursor = Cursors.Hand;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatAppearance.MouseDownBackColor = Color.FromArgb(64, 64, 64);
+            button1.FlatAppearance.MouseOverBackColor = Color.FromArgb(64, 64, 64);
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Segoe Fluent Icons", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.ForeColor = SystemColors.ControlLightLight;
+            button1.Location = new Point(783, 93);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 32);
+            button1.TabIndex = 16;
+            button1.Text = "AcercaDe";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
+            // 
             // Cartelera
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -219,6 +238,7 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(901, 565);
+            Controls.Add(button1);
             Controls.Add(panel1);
             Controls.Add(Btn_Cerrar);
             Controls.Add(Btn_Minimizar);
@@ -260,5 +280,6 @@
         private PictureBox Btn_Minimizar;
         private PictureBox Btn_Cerrar;
         private Panel panel1;
+        private Button button1;
     }
 }
