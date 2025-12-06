@@ -35,6 +35,8 @@
             Btn_Cerrar1 = new PictureBox();
             Btn_Minimizar = new PictureBox();
             panel2 = new Panel();
+            btninvitado = new Button();
+            lnkRegistro = new LinkLabel();
             ((System.ComponentModel.ISupportInitialize)Btn_Cerrar1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Btn_Minimizar).BeginInit();
             SuspendLayout();
@@ -48,11 +50,11 @@
             btn_login.FlatAppearance.MouseOverBackColor = Color.FromArgb(64, 64, 64);
             btn_login.FlatStyle = FlatStyle.Flat;
             btn_login.Font = new Font("Segoe Fluent Icons", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btn_login.ForeColor = SystemColors.ButtonFace;
-            btn_login.Location = new Point(456, 502);
+            btn_login.ForeColor = SystemColors.ControlLightLight;
+            btn_login.Location = new Point(322, 505);
             btn_login.Margin = new Padding(3, 4, 3, 4);
             btn_login.Name = "btn_login";
-            btn_login.Size = new Size(109, 59);
+            btn_login.Size = new Size(131, 49);
             btn_login.TabIndex = 0;
             btn_login.Text = "Iniciar Sesión";
             btn_login.UseVisualStyleBackColor = false;
@@ -115,12 +117,47 @@
             panel2.TabIndex = 16;
             panel2.MouseDown += panel2_MouseDown;
             // 
+            // btninvitado
+            // 
+            btninvitado.BackColor = SystemColors.ActiveCaptionText;
+            btninvitado.Cursor = Cursors.Hand;
+            btninvitado.FlatAppearance.BorderSize = 0;
+            btninvitado.FlatAppearance.MouseDownBackColor = Color.FromArgb(64, 64, 64);
+            btninvitado.FlatAppearance.MouseOverBackColor = Color.FromArgb(64, 64, 64);
+            btninvitado.FlatStyle = FlatStyle.Flat;
+            btninvitado.Font = new Font("Segoe Fluent Icons", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btninvitado.ForeColor = SystemColors.ButtonFace;
+            btninvitado.Location = new Point(543, 505);
+            btninvitado.Margin = new Padding(3, 4, 3, 4);
+            btninvitado.Name = "btninvitado";
+            btninvitado.Size = new Size(126, 49);
+            btninvitado.TabIndex = 1;
+            btninvitado.Text = "Entrar Como Invitado";
+            btninvitado.UseVisualStyleBackColor = false;
+            btninvitado.Click += btninvitado_Click;
+            // 
+            // lnkRegistro
+            // 
+            lnkRegistro.AutoSize = true;
+            lnkRegistro.BackColor = SystemColors.ActiveCaptionText;
+            lnkRegistro.ForeColor = SystemColors.ControlLightLight;
+            lnkRegistro.LinkColor = Color.Red;
+            lnkRegistro.Location = new Point(335, 580);
+            lnkRegistro.Name = "lnkRegistro";
+            lnkRegistro.Size = new Size(322, 20);
+            lnkRegistro.TabIndex = 17;
+            lnkRegistro.TabStop = true;
+            lnkRegistro.Text = "¿NO TIENES UNA CUENTA?, CREATE UNA AQUI";
+lnkRegistro.LinkClicked += lnkRegistro_LinkClicked;
+            // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
-            ClientSize = new Size(1030, 643);
+            ClientSize = new Size(1040, 647);
+            Controls.Add(lnkRegistro);
+            Controls.Add(btninvitado);
             Controls.Add(panel2);
             Controls.Add(Btn_Cerrar1);
             Controls.Add(Btn_Minimizar);
@@ -147,5 +184,7 @@
         private PictureBox Btn_Cerrar1;
         private PictureBox Btn_Minimizar;
         private Panel panel2;
+        private Button btninvitado;
+        private LinkLabel lnkRegistro;
     }
 }

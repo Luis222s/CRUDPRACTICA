@@ -13,22 +13,21 @@ namespace CapaDatos
 {
     public class CD_Conexion
     {
-        private SqlConnection conexion = new SqlConnection("Server=(local);Database=PracticaCrud;Integrated Security=True;TrustServerCertificate=True;");
+
+        private SqlConnection Conexion = new SqlConnection("Data Source=.;Initial Catalog=PracticaCrud;Integrated Security=True;TrustServerCertificate=True");
 
         public SqlConnection AbrirConexion()
         {
-            if (conexion.State == ConnectionState.Closed)
-                conexion.Open();
-
-            return conexion;
+            if (Conexion.State == ConnectionState.Closed)
+                Conexion.Open();
+            return Conexion;
         }
+
         public SqlConnection CerrarConexion()
         {
-            if (conexion.State == ConnectionState.Open)
-                conexion.Close();
-
-            return conexion;
-
+            if (Conexion.State == ConnectionState.Open)
+                Conexion.Close();
+            return Conexion;
         }
     }
 }

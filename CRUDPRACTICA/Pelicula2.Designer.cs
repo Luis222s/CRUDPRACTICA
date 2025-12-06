@@ -46,9 +46,9 @@
             label4.BackColor = Color.Transparent;
             label4.Font = new Font("Segoe Fluent Icons", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.ForeColor = SystemColors.ButtonFace;
-            label4.Location = new Point(247, 278);
+            label4.Location = new Point(282, 371);
             label4.Name = "label4";
-            label4.Size = new Size(316, 19);
+            label4.Size = new Size(382, 24);
             label4.TabIndex = 11;
             label4.Text = "Fecha de estreno: 9 de octubre de 2025";
             // 
@@ -58,9 +58,9 @@
             label3.BackColor = Color.Transparent;
             label3.Font = new Font("Segoe Fluent Icons", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = SystemColors.ButtonFace;
-            label3.Location = new Point(247, 349);
+            label3.Location = new Point(282, 465);
             label3.Name = "label3";
-            label3.Size = new Size(581, 57);
+            label3.Size = new Size(710, 72);
             label3.TabIndex = 10;
             label3.Text = resources.GetString("label3.Text");
             // 
@@ -70,9 +70,9 @@
             label2.BackColor = Color.Transparent;
             label2.Font = new Font("Segoe Fluent Icons", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = SystemColors.ButtonFace;
-            label2.Location = new Point(247, 225);
+            label2.Location = new Point(282, 300);
             label2.Name = "label2";
-            label2.Size = new Size(157, 19);
+            label2.Size = new Size(190, 24);
             label2.TabIndex = 9;
             label2.Text = "Duración: 1 H 36 M";
             // 
@@ -82,9 +82,9 @@
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Segoe Fluent Icons", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.ButtonFace;
-            label1.Location = new Point(247, 173);
+            label1.Location = new Point(282, 231);
             label1.Name = "label1";
-            label1.Size = new Size(445, 19);
+            label1.Size = new Size(545, 24);
             label1.TabIndex = 8;
             label1.Text = "Géneros: Ciencia fictición, Acción, Telerrealidad, Aventura\r\n";
             // 
@@ -92,9 +92,10 @@
             // 
             pictureBox1.BorderStyle = BorderStyle.FixedSingle;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(38, 164);
+            pictureBox1.Location = new Point(12, 219);
+            pictureBox1.Margin = new Padding(3, 4, 3, 4);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(179, 293);
+            pictureBox1.Size = new Size(235, 390);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 7;
             pictureBox1.TabStop = false;
@@ -109,9 +110,10 @@
             Btn_Boletos2.FlatStyle = FlatStyle.Flat;
             Btn_Boletos2.Font = new Font("Segoe Fluent Icons", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Btn_Boletos2.ForeColor = SystemColors.ButtonHighlight;
-            Btn_Boletos2.Location = new Point(692, 485);
+            Btn_Boletos2.Location = new Point(791, 647);
+            Btn_Boletos2.Margin = new Padding(3, 4, 3, 4);
             Btn_Boletos2.Name = "Btn_Boletos2";
-            Btn_Boletos2.Size = new Size(95, 58);
+            Btn_Boletos2.Size = new Size(124, 77);
             Btn_Boletos2.TabIndex = 12;
             Btn_Boletos2.Text = "Comprar boletos";
             Btn_Boletos2.UseVisualStyleBackColor = false;
@@ -127,9 +129,10 @@
             Btn_Cancelar2.FlatStyle = FlatStyle.Flat;
             Btn_Cancelar2.Font = new Font("Segoe Fluent Icons", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Btn_Cancelar2.ForeColor = Color.White;
-            Btn_Cancelar2.Location = new Point(148, 485);
+            Btn_Cancelar2.Location = new Point(169, 647);
+            Btn_Cancelar2.Margin = new Padding(3, 4, 3, 4);
             Btn_Cancelar2.Name = "Btn_Cancelar2";
-            Btn_Cancelar2.Size = new Size(99, 58);
+            Btn_Cancelar2.Size = new Size(121, 77);
             Btn_Cancelar2.TabIndex = 13;
             Btn_Cancelar2.Text = "Cancelar";
             Btn_Cancelar2.UseVisualStyleBackColor = false;
@@ -141,20 +144,20 @@
             label5.BackColor = Color.Transparent;
             label5.Font = new Font("Segoe Fluent Icons", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label5.ForeColor = SystemColors.ButtonFace;
-            label5.Location = new Point(88, 128);
+            label5.Location = new Point(101, 171);
             label5.Name = "label5";
-            label5.Size = new Size(71, 24);
+            label5.Size = new Size(83, 30);
             label5.TabIndex = 14;
             label5.Text = "Tron 3";
             label5.Click += label5_Click;
             // 
             // Pelicula2
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(903, 567);
+            ClientSize = new Size(1032, 756);
             Controls.Add(label5);
             Controls.Add(Btn_Cancelar2);
             Controls.Add(Btn_Boletos2);
@@ -164,6 +167,7 @@
             Controls.Add(label1);
             Controls.Add(pictureBox1);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 4, 3, 4);
             Name = "Pelicula2";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
