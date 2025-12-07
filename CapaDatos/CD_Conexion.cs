@@ -1,25 +1,28 @@
-﻿using Microsoft.Data.SqlClient;
-using Microsoft.Data;
-using System;
-using System.Data.SqlClient;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Runtime.CompilerServices;
-using System.Data;
+﻿using Microsoft.Data.SqlClient; // Usamos esta (la moderna)
+using System.Data;           // Para ConnectionState
+using System;                // Para excepciones
 
 namespace CapaDatos
 {
     public class CD_Conexion
     {
+        // 1. Declaración de la cadena de conexión
+        private string connectionString = "Data Source=.;Initial Catalog=PracticaCrud;Integrated Security=True;TrustServerCertificate=True";
 
-        private SqlConnection Conexion = new SqlConnection("Data Source=.;Initial Catalog=PracticaCrud;Integrated Security=True;TrustServerCertificate=True");
+        // 2. Declaración de la variable de conexión
+        private SqlConnection Conexion;
+
+        // Constructor: Inicializa la variable de conexión
+        public CD_Conexion()
+        {
+            this.Conexion = new SqlConnection(connectionString);
+        }
 
         public SqlConnection AbrirConexion()
         {
             if (Conexion.State == ConnectionState.Closed)
                 Conexion.Open();
+
             return Conexion;
         }
 
@@ -27,6 +30,7 @@ namespace CapaDatos
         {
             if (Conexion.State == ConnectionState.Open)
                 Conexion.Close();
+
             return Conexion;
         }
     }

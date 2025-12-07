@@ -125,8 +125,8 @@ namespace CapaPresentacion
 
         private void Btn_Boletos1_Click(object sender, EventArgs e) // Botón Comprar
         {
-
-            VentaDeBoletos frm = new VentaDeBoletos(idPeliculaActual.ToString(), tituloPelicula);
+            // Pasa la imagen actual del PictureBox como tercer argumento
+            VentaDeBoletos frm = new VentaDeBoletos(idPeliculaActual.ToString(), tituloPelicula, pictureBox1.Image);
             frm.Show();
             this.Close();
         }
@@ -137,6 +137,11 @@ namespace CapaPresentacion
         }
 
         private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
 
         }

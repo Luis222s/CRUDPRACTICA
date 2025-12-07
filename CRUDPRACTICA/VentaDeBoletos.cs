@@ -3,7 +3,8 @@ using System.Windows.Forms;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Runtime.InteropServices;
-using CapaNegocio; // Para mover ventana
+using CapaNegocio;
+using System.IO;
 
 namespace CapaPresentacion
 {
@@ -12,13 +13,14 @@ namespace CapaPresentacion
         // VARIABLES GLOBALES
         private int IdPelicula;
         private string TituloPelicula;
+        private Image ImagenPelicula; // <-- ALMACENA LA IMAGEN RECIBIDA
         private decimal TotalAPagar = 0;
 
-        // --- CONSTRUCTOR ---
-        public VentaDeBoletos(string idRecibido, string tituloRecibido)
+        // --- CONSTRUCTOR CORREGIDO (3 ARGUMENTOS) ---
+        public VentaDeBoletos(string idRecibido, string tituloRecibido, Image imagenRecibida)
         {
             InitializeComponent();
-            ConfigurarDiseñoRedondo(); // Diseño visual
+            ConfigurarDiseñoRedondo();
 
             // 1. Guardamos los datos recibidos
             if (int.TryParse(idRecibido, out int id))
@@ -26,6 +28,14 @@ namespace CapaPresentacion
                 this.IdPelicula = id;
                 this.TituloPelicula = tituloRecibido;
             }
+            this.ImagenPelicula = imagenRecibida; // <-- GUARDAMOS EL OBJETO IMAGEN
+        }
+
+        // Constructor vacío (para el diseñador)
+        public VentaDeBoletos()
+        {
+            InitializeComponent();
+            ConfigurarDiseñoRedondo();
         }
 
         // --- CARGA DEL FORMULARIO ---
@@ -33,10 +43,18 @@ namespace CapaPresentacion
         {
             this.Text = "Comprando: " + TituloPelicula;
 
-            // 1. Limpiamos todo primero para evitar errores
+            // 1. Mostrar la imagen recibida
+            if (this.ImagenPelicula != null)
+            {
+                // Asumo que tu PictureBox se llama pictureBox2
+                pictureBox2.Image = this.ImagenPelicula;
+                pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            }
+
+            // 2. Limpiamos todo primero para evitar errores
             LimpiarTodo();
 
-            // 2. Llenamos los ComboBoxes con datos nuevos
+            // 3. Llenamos los ComboBoxes con datos nuevos
             LlenarHorarios();
             LlenarCantidad();
             LlenarTipoEntrada();
@@ -107,7 +125,7 @@ namespace CapaPresentacion
             }
         }
 
-        // --- BOTÓN CONFIRMAR ---
+        // --- BOTÓN CONFIRMAR (MODIFICADO PARA PASAR 7 ARGUMENTOS) ---
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
             // Validar
@@ -117,12 +135,11 @@ namespace CapaPresentacion
                 return;
             }
 
-            // Calcular Boletos
+            // ... (Cálculos de precio) ...
             int cantidad = int.Parse(cmbCantidad.Text);
             decimal precio = cmbEntrada.Text.Contains("VIP") ? 300 : 125;
             decimal subtotal = cantidad * precio;
 
-            // Calcular Comida
             decimal comida = 0;
             if (cmbCombo1 != null) comida += int.Parse(cmbCombo1.Text) * 300;
             if (cmbCombo2 != null) comida += int.Parse(cmbCombo2.Text) * 330;
@@ -131,14 +148,17 @@ namespace CapaPresentacion
 
             TotalAPagar = subtotal + comida;
 
+
             // Ir a Salas con los datos
+            // ESTA LLAMADA AHORA TIENE 7 ARGUMENTOS (6 de datos + 1 de Imagen)
             Salas salas = new Salas(
                 IdPelicula,
                 TituloPelicula,
                 cmbHorario.Text,
                 cantidad,
                 TotalAPagar,
-                cmbEntrada.Text
+                cmbEntrada.Text,
+                this.ImagenPelicula // <-- ARGUMENTO 7: IMAGEN
             );
             salas.Show();
             this.Close();
@@ -190,6 +210,7 @@ namespace CapaPresentacion
         private void cmbCombo3_SelectedIndexChanged(object sender, EventArgs e) { }
         private void cmbCombo4_SelectedIndexChanged(object sender, EventArgs e) { }
         private void Btn_Confirmar1_Click(object sender, EventArgs e) { }
+        private void pictureBox2_Click(object sender, EventArgs e) { } // Nuevo Click Handler
 
         // Mover ventana
         [DllImport("user32.dll", EntryPoint = "ReleaseCapture")]
@@ -207,7 +228,6 @@ namespace CapaPresentacion
             this.Close();
             FrmPelicula frm = new FrmPelicula(IdPelicula.ToString());
             frm.Show();
-
         }
     }
 }

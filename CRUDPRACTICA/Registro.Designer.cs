@@ -59,7 +59,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Stencil", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(29, 87);
+            label2.Location = new Point(29, 91);
             label2.Name = "label2";
             label2.Size = new Size(71, 18);
             label2.TabIndex = 1;
@@ -69,7 +69,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Stencil", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(34, 128);
+            label3.Location = new Point(34, 133);
             label3.Name = "label3";
             label3.Size = new Size(66, 18);
             label3.TabIndex = 2;
@@ -79,7 +79,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Stencil", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.Location = new Point(5, 176);
+            label4.Location = new Point(5, 179);
             label4.Name = "label4";
             label4.Size = new Size(101, 18);
             label4.TabIndex = 3;
@@ -108,34 +108,38 @@
             // 
             // txtPassword
             // 
+            txtPassword.Font = new Font("Century", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtPassword.Location = new Point(135, 172);
             txtPassword.Name = "txtPassword";
-            txtPassword.Size = new Size(160, 29);
+            txtPassword.Size = new Size(160, 32);
             txtPassword.TabIndex = 7;
             txtPassword.UseSystemPasswordChar = true;
             // 
             // txtUsuario
             // 
+            txtUsuario.Font = new Font("Century", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtUsuario.Location = new Point(135, 84);
             txtUsuario.Name = "txtUsuario";
-            txtUsuario.Size = new Size(155, 29);
+            txtUsuario.Size = new Size(155, 32);
             txtUsuario.TabIndex = 6;
             // 
             // txtCorreo
             // 
             txtCorreo.BackColor = SystemColors.ButtonHighlight;
+            txtCorreo.Font = new Font("Century", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtCorreo.ForeColor = Color.Black;
             txtCorreo.Location = new Point(135, 127);
             txtCorreo.Name = "txtCorreo";
-            txtCorreo.Size = new Size(270, 29);
+            txtCorreo.Size = new Size(270, 32);
             txtCorreo.TabIndex = 5;
             txtCorreo.TextChanged += txtCorreo_TextChanged;
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(135, 41);
+            txtNombre.Font = new Font("Century", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtNombre.Location = new Point(134, 37);
             txtNombre.Name = "txtNombre";
-            txtNombre.Size = new Size(178, 29);
+            txtNombre.Size = new Size(178, 32);
             txtNombre.TabIndex = 4;
             txtNombre.KeyPress += textBox1_KeyPress;
             // 

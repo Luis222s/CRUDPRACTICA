@@ -214,7 +214,7 @@
             btnAtras.TabIndex = 26;
             btnAtras.Text = "ATRAS";
             btnAtras.UseVisualStyleBackColor = false;
-            btnAtras.Click += btnAtras_Click;
+            btnAtras.Click += btnAtras_Click_1;
             // 
             // panel1
             // 

@@ -30,6 +30,12 @@ namespace CapaNegocio
         {
             return objetoCD.MostrarTodasPeliculas();
         }
+
+        public byte[] BuscarImagenPelicula(int idPelicula)
+        {
+            CD_Peliculas objCD = new CD_Peliculas();
+            return objCD.ObtenerImagen(idPelicula);
+        }
     }
 }
 

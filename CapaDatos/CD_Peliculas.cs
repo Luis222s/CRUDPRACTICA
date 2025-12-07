@@ -63,5 +63,23 @@ namespace CapaDatos
             return tabla;
         }
 
+        public byte[] ObtenerImagen(int idPelicula)
+        {
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "SELECT Imagen FROM Pelicula WHERE IdPelicula = @id";
+            comando.CommandType = CommandType.Text;
+            comando.Parameters.AddWithValue("@id", idPelicula);
+
+            object resultado = comando.ExecuteScalar();
+            comando.Parameters.Clear();
+            conexion.CerrarConexion();
+
+            if (resultado != null && resultado != DBNull.Value)
+            {
+                return (byte[])resultado;
+            }
+            return null;
+        }
+
     }
 }
