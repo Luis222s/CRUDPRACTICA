@@ -36,12 +36,12 @@
             label1 = new Label();
             label2 = new Label();
             cmbCantidad = new ComboBox();
-            Btn_Confirmar1 = new Button();
+            btnConfirmar = new Button();
             panel4 = new Panel();
-            comboBox6 = new ComboBox();
-            comboBox5 = new ComboBox();
-            comboBox4 = new ComboBox();
-            comboBox3 = new ComboBox();
+            cmbCombo4 = new ComboBox();
+            cmbCombo3 = new ComboBox();
+            cmbCombo2 = new ComboBox();
+            cmbCombo1 = new ComboBox();
             label9 = new Label();
             label8 = new Label();
             label7 = new Label();
@@ -57,7 +57,8 @@
             label11 = new Label();
             label12 = new Label();
             label13 = new Label();
-            cmb_entrada1 = new ComboBox();
+            cmbEntrada = new ComboBox();
+            btnAtras = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panel4.SuspendLayout();
@@ -79,6 +80,7 @@
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // pictureBox2
             // 
@@ -108,7 +110,6 @@
             cmbHorario.Cursor = Cursors.Hand;
             cmbHorario.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbHorario.FormattingEnabled = true;
-            cmbHorario.Items.AddRange(new object[] { "12 Nov 6:30 P.M", "12 Nov 9:00 P.M", "14 Nov 5:30 P.M", "14 Nov 8:30 P.M" });
             cmbHorario.Location = new Point(544, 169);
             cmbHorario.Margin = new Padding(3, 4, 3, 4);
             cmbHorario.Name = "cmbHorario";
@@ -145,40 +146,41 @@
             cmbCantidad.Cursor = Cursors.Hand;
             cmbCantidad.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbCantidad.FormattingEnabled = true;
-            cmbCantidad.Items.AddRange(new object[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" });
             cmbCantidad.Location = new Point(544, 92);
             cmbCantidad.Margin = new Padding(3, 4, 3, 4);
             cmbCantidad.Name = "cmbCantidad";
             cmbCantidad.Size = new Size(138, 28);
             cmbCantidad.TabIndex = 5;
+            cmbCantidad.SelectedIndexChanged += cmbCantidad_SelectedIndexChanged;
             // 
-            // Btn_Confirmar1
+            // btnConfirmar
             // 
-            Btn_Confirmar1.BackColor = SystemColors.InfoText;
-            Btn_Confirmar1.Cursor = Cursors.Hand;
-            Btn_Confirmar1.FlatAppearance.BorderSize = 0;
-            Btn_Confirmar1.FlatAppearance.MouseDownBackColor = Color.FromArgb(64, 64, 64);
-            Btn_Confirmar1.FlatAppearance.MouseOverBackColor = Color.FromArgb(64, 64, 64);
-            Btn_Confirmar1.FlatStyle = FlatStyle.Flat;
-            Btn_Confirmar1.Font = new Font("Segoe MDL2 Assets", 12.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            Btn_Confirmar1.ForeColor = SystemColors.ControlLightLight;
-            Btn_Confirmar1.Location = new Point(690, 263);
-            Btn_Confirmar1.Margin = new Padding(3, 4, 3, 4);
-            Btn_Confirmar1.Name = "Btn_Confirmar1";
-            Btn_Confirmar1.Size = new Size(90, 40);
-            Btn_Confirmar1.TabIndex = 7;
-            Btn_Confirmar1.Text = "Confirmar";
-            Btn_Confirmar1.TextAlign = ContentAlignment.TopCenter;
-            Btn_Confirmar1.UseVisualStyleBackColor = false;
+            btnConfirmar.BackColor = SystemColors.ButtonHighlight;
+            btnConfirmar.Cursor = Cursors.Hand;
+            btnConfirmar.FlatAppearance.BorderSize = 0;
+            btnConfirmar.FlatAppearance.MouseDownBackColor = Color.FromArgb(64, 64, 64);
+            btnConfirmar.FlatAppearance.MouseOverBackColor = Color.FromArgb(64, 64, 64);
+            btnConfirmar.FlatStyle = FlatStyle.Flat;
+            btnConfirmar.Font = new Font("Segoe MDL2 Assets", 12.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnConfirmar.ForeColor = SystemColors.ActiveCaptionText;
+            btnConfirmar.Location = new Point(790, 263);
+            btnConfirmar.Margin = new Padding(3, 4, 3, 4);
+            btnConfirmar.Name = "btnConfirmar";
+            btnConfirmar.Size = new Size(107, 40);
+            btnConfirmar.TabIndex = 7;
+            btnConfirmar.Text = "Confirmar";
+            btnConfirmar.TextAlign = ContentAlignment.TopCenter;
+            btnConfirmar.UseVisualStyleBackColor = false;
+            btnConfirmar.Click += btnConfirmar_Click;
             // 
             // panel4
             // 
             panel4.BackColor = SystemColors.InfoText;
             panel4.BackgroundImageLayout = ImageLayout.None;
-            panel4.Controls.Add(comboBox6);
-            panel4.Controls.Add(comboBox5);
-            panel4.Controls.Add(comboBox4);
-            panel4.Controls.Add(comboBox3);
+            panel4.Controls.Add(cmbCombo4);
+            panel4.Controls.Add(cmbCombo3);
+            panel4.Controls.Add(cmbCombo2);
+            panel4.Controls.Add(cmbCombo1);
             panel4.Controls.Add(label9);
             panel4.Controls.Add(label8);
             panel4.Controls.Add(label7);
@@ -198,53 +200,49 @@
             panel4.Size = new Size(1033, 387);
             panel4.TabIndex = 12;
             // 
-            // comboBox6
+            // cmbCombo4
             // 
-            comboBox6.Cursor = Cursors.Hand;
-            comboBox6.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox6.FormattingEnabled = true;
-            comboBox6.Items.AddRange(new object[] { "0", "1", "2", "3", "4" });
-            comboBox6.Location = new Point(838, 319);
-            comboBox6.Margin = new Padding(3, 4, 3, 4);
-            comboBox6.Name = "comboBox6";
-            comboBox6.Size = new Size(138, 28);
-            comboBox6.TabIndex = 36;
+            cmbCombo4.Cursor = Cursors.Hand;
+            cmbCombo4.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbCombo4.FormattingEnabled = true;
+            cmbCombo4.Location = new Point(838, 319);
+            cmbCombo4.Margin = new Padding(3, 4, 3, 4);
+            cmbCombo4.Name = "cmbCombo4";
+            cmbCombo4.Size = new Size(138, 28);
+            cmbCombo4.TabIndex = 36;
             // 
-            // comboBox5
+            // cmbCombo3
             // 
-            comboBox5.Cursor = Cursors.Hand;
-            comboBox5.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox5.FormattingEnabled = true;
-            comboBox5.Items.AddRange(new object[] { "0", "1", "2", "3", "4" });
-            comboBox5.Location = new Point(568, 319);
-            comboBox5.Margin = new Padding(3, 4, 3, 4);
-            comboBox5.Name = "comboBox5";
-            comboBox5.Size = new Size(138, 28);
-            comboBox5.TabIndex = 35;
+            cmbCombo3.Cursor = Cursors.Hand;
+            cmbCombo3.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbCombo3.FormattingEnabled = true;
+            cmbCombo3.Location = new Point(568, 319);
+            cmbCombo3.Margin = new Padding(3, 4, 3, 4);
+            cmbCombo3.Name = "cmbCombo3";
+            cmbCombo3.Size = new Size(138, 28);
+            cmbCombo3.TabIndex = 35;
             // 
-            // comboBox4
+            // cmbCombo2
             // 
-            comboBox4.Cursor = Cursors.Hand;
-            comboBox4.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox4.FormattingEnabled = true;
-            comboBox4.Items.AddRange(new object[] { "0", "1", "2", "3", "4" });
-            comboBox4.Location = new Point(303, 319);
-            comboBox4.Margin = new Padding(3, 4, 3, 4);
-            comboBox4.Name = "comboBox4";
-            comboBox4.Size = new Size(138, 28);
-            comboBox4.TabIndex = 34;
+            cmbCombo2.Cursor = Cursors.Hand;
+            cmbCombo2.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbCombo2.FormattingEnabled = true;
+            cmbCombo2.Location = new Point(303, 319);
+            cmbCombo2.Margin = new Padding(3, 4, 3, 4);
+            cmbCombo2.Name = "cmbCombo2";
+            cmbCombo2.Size = new Size(138, 28);
+            cmbCombo2.TabIndex = 34;
             // 
-            // comboBox3
+            // cmbCombo1
             // 
-            comboBox3.Cursor = Cursors.Hand;
-            comboBox3.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox3.FormattingEnabled = true;
-            comboBox3.Items.AddRange(new object[] { "0", "1", "2", "3", "4" });
-            comboBox3.Location = new Point(31, 319);
-            comboBox3.Margin = new Padding(3, 4, 3, 4);
-            comboBox3.Name = "comboBox3";
-            comboBox3.Size = new Size(138, 28);
-            comboBox3.TabIndex = 13;
+            cmbCombo1.Cursor = Cursors.Hand;
+            cmbCombo1.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbCombo1.FormattingEnabled = true;
+            cmbCombo1.Location = new Point(31, 319);
+            cmbCombo1.Margin = new Padding(3, 4, 3, 4);
+            cmbCombo1.Name = "cmbCombo1";
+            cmbCombo1.Size = new Size(138, 28);
+            cmbCombo1.TabIndex = 13;
             // 
             // label9
             // 
@@ -413,17 +411,37 @@
             label13.TabIndex = 15;
             label13.Text = "Entrada";
             // 
-            // cmb_entrada1
+            // cmbEntrada
             // 
-            cmb_entrada1.Cursor = Cursors.Hand;
-            cmb_entrada1.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmb_entrada1.FormattingEnabled = true;
-            cmb_entrada1.Items.AddRange(new object[] { "General", "VIP" });
-            cmb_entrada1.Location = new Point(759, 92);
-            cmb_entrada1.Margin = new Padding(3, 4, 3, 4);
-            cmb_entrada1.Name = "cmb_entrada1";
-            cmb_entrada1.Size = new Size(138, 28);
-            cmb_entrada1.TabIndex = 14;
+            cmbEntrada.Cursor = Cursors.Hand;
+            cmbEntrada.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbEntrada.FormattingEnabled = true;
+            cmbEntrada.Location = new Point(759, 92);
+            cmbEntrada.Margin = new Padding(3, 4, 3, 4);
+            cmbEntrada.Name = "cmbEntrada";
+            cmbEntrada.Size = new Size(138, 28);
+            cmbEntrada.TabIndex = 14;
+            cmbEntrada.SelectedIndexChanged += cmbEntrada_SelectedIndexChanged;
+            // 
+            // btnAtras
+            // 
+            btnAtras.BackColor = SystemColors.ButtonHighlight;
+            btnAtras.Cursor = Cursors.Hand;
+            btnAtras.FlatAppearance.BorderSize = 0;
+            btnAtras.FlatAppearance.MouseDownBackColor = Color.FromArgb(64, 64, 64);
+            btnAtras.FlatAppearance.MouseOverBackColor = Color.FromArgb(64, 64, 64);
+            btnAtras.FlatStyle = FlatStyle.Flat;
+            btnAtras.Font = new Font("Segoe MDL2 Assets", 12.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAtras.ForeColor = SystemColors.ActiveCaptionText;
+            btnAtras.Location = new Point(609, 263);
+            btnAtras.Margin = new Padding(3, 4, 3, 4);
+            btnAtras.Name = "btnAtras";
+            btnAtras.Size = new Size(107, 40);
+            btnAtras.TabIndex = 16;
+            btnAtras.Text = "Atras";
+            btnAtras.TextAlign = ContentAlignment.TopCenter;
+            btnAtras.UseVisualStyleBackColor = false;
+            btnAtras.Click += btnAtras_Click;
             // 
             // VentaDeBoletos
             // 
@@ -432,11 +450,12 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1030, 753);
+            Controls.Add(btnAtras);
             Controls.Add(label13);
-            Controls.Add(cmb_entrada1);
+            Controls.Add(cmbEntrada);
             Controls.Add(label12);
             Controls.Add(panel4);
-            Controls.Add(Btn_Confirmar1);
+            Controls.Add(btnConfirmar);
             Controls.Add(label2);
             Controls.Add(cmbCantidad);
             Controls.Add(label1);
@@ -471,12 +490,12 @@
         private Label label1;
         private Label label2;
         private ComboBox cmbCantidad;
-        private Button Btn_Confirmar1;
+        private Button btnConfirmar;
         private Panel panel4;
-        private ComboBox comboBox6;
-        private ComboBox comboBox5;
-        private ComboBox comboBox4;
-        private ComboBox comboBox3;
+        private ComboBox cmbCombo4;
+        private ComboBox cmbCombo3;
+        private ComboBox cmbCombo2;
+        private ComboBox cmbCombo1;
         private Label label9;
         private Label label8;
         private Label label7;
@@ -492,6 +511,7 @@
         private Label label11;
         private Label label12;
         private Label label13;
-        private ComboBox cmb_entrada1;
+        private ComboBox cmbEntrada;
+        private Button btnAtras;
     }
 }
