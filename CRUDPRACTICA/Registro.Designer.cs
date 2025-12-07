@@ -87,7 +87,8 @@
             // 
             // groupBox1
             // 
-            groupBox1.BackColor = SystemColors.ActiveCaptionText;
+            groupBox1.BackColor = Color.Transparent;
+            groupBox1.BackgroundImage = Properties.Resources.IMAGEN_DE_CONTROL_BOX;
             groupBox1.Controls.Add(txtPassword);
             groupBox1.Controls.Add(txtUsuario);
             groupBox1.Controls.Add(txtCorreo);
@@ -97,7 +98,7 @@
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label3);
             groupBox1.Font = new Font("Stencil", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            groupBox1.ForeColor = SystemColors.ButtonHighlight;
+            groupBox1.ForeColor = Color.White;
             groupBox1.Location = new Point(64, 125);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(437, 227);

@@ -98,7 +98,7 @@ namespace CapaPresentacion
                     MessageBox.Show($"¡Bienvenido {UsuarioSesion.Nombre}!\nRol: {rol}", "Acceso Correcto");
 
                     // 5. Abrir el formulario principal (Cartelera)
-                    Cartelera menu = new Cartelera();
+                    FrmMenuPrincipal menu = new FrmMenuPrincipal();
                     menu.Show();
                     this.Hide(); // Ocultamos el login
                 }
@@ -136,7 +136,7 @@ namespace CapaPresentacion
                             "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             // 3. Abrimos la Cartelera
-            Cartelera menu = new Cartelera();
+            FrmMenuPrincipal menu = new FrmMenuPrincipal();
             menu.Show();
             this.Hide();
         }

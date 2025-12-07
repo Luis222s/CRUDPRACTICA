@@ -121,6 +121,18 @@ namespace CapaPresentacion
         {
 
         }
+
+        private void Btn_Minimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+
+        }
+
+        private void Btn_Cerrar_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+
+        }
         // Conecta esto al evento MouseDown del panel o formulario si quieres moverlo
         // private void FrmHistorial_MouseDown(object sender, MouseEventArgs e) { ReleaseCapture(); SendMessage(this.Handle, 0x112, 0x0f012, 0); }
     }

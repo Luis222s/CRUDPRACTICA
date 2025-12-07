@@ -219,6 +219,7 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.GrayText;
+            panel1.BackgroundImage = Properties.Resources.IMAGEN_PARA_LOGIN1;
             panel1.Controls.Add(comboBox);
             panel1.Controls.Add(comboBox1);
             panel1.Controls.Add(comboBox2);

@@ -51,7 +51,39 @@ namespace CapaPresentacion
                     label4.Text = "Fecha de estreno: " + fecha.ToShortDateString();
 
                     label3.Text = fila["Sinopsis"].ToString(); // Descripción larga
+                                                               // --- AGREGA ESTO PARA CAMBIAR LA IMAGEN ---
+                                                               // Asumiendo que tu PictureBox se llama 'pictureBox1'
+
+                    //agregamos la clasificación de la pelicula
+                    label6.Text = "Clasificación: " + fila["Clasificacion"].ToString();
+
+
+
+                    switch (id)
+                    {
+                        case 1:
+                            // Asegúrate de usar el nombre exacto de la imagen en tus recursos
+                            // Si no te sale 'Properties', intenta solo 'Resources.Nombre'
+                            pictureBox1.Image = Properties.Resources.avengers_poster;
+                            break;
+                        case 2:
+                            pictureBox1.Image = Properties.Resources.padrino_poster;
+                            break;
+                        case 3:
+                            pictureBox1.Image = Properties.Resources.guardians_poster;
+                            break;
+                        case 4:
+                            pictureBox1.Image = Properties.Resources.chainsaw_poster;
+                            break;
+                        default:
+                            // Imagen por defecto si agregas una peli 5 y no tienes foto
+                            // pictureBox1.Image = Properties.Resources.logo_cine; 
+                            break;
+                    }
+
                 }
+
+
             }
             catch (Exception ex)
             {
@@ -93,10 +125,7 @@ namespace CapaPresentacion
 
         private void Btn_Boletos1_Click(object sender, EventArgs e) // Botón Comprar
         {
-            // Aquí mandaremos al usuario a VentaDeBoletos llevando el ID
-            MessageBox.Show($"¡Seleccionaste {tituloPelicula} (ID: {idPeliculaActual})!\nAbriendo taquilla...");
 
-            
             VentaDeBoletos frm = new VentaDeBoletos(idPeliculaActual.ToString(), tituloPelicula);
             frm.Show();
             this.Close();
