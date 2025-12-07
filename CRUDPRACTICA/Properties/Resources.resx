@@ -118,35 +118,17 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="avengers_poster" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\avengers_poster.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="padrino_poster" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\padrino_poster.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="LOGO1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\LOGO1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="IMG-20251205-WA00221" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\IMG-20251205-WA00221.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="945f4b41-4fb5-43ca-b716-a06d5cdf1514" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\945f4b41-4fb5-43ca-b716-a06d5cdf1514.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="guardians_poster" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\guardians_poster.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ede9afa0-4fbb-4e08-8c3e-fab97924478b" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ede9afa0-4fbb-4e08-8c3e-fab97924478b.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="IMAGEN DE CONTROL BOX" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IMAGEN DE CONTROL BOX.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Captura de pantalla 2025-12-06 130924" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Captura de pantalla 2025-12-06 130924.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="FONDO" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\FONDO.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="5ff49aff-5f59-4f4f-82db-4ed9161890db" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\5ff49aff-5f59-4f4f-82db-4ed9161890db.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="IMG-20251205-WA00251" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\IMG-20251205-WA00251.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="padrino_poster" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\padrino_poster.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Captura de pantalla 2025-12-06 232751" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Captura de pantalla 2025-12-06 232751.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -154,49 +136,70 @@
   <data name="LOGO" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\LOGO.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="IMAGEN PARA LOGIN" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\IMAGEN PARA LOGIN.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="chainsaw_poster" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\chainsaw_poster.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Captura de pantalla 2025-12-06 130547" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Captura de pantalla 2025-12-06 130547.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="5ff49aff-5f59-4f4f-82db-4ed9161890db" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\5ff49aff-5f59-4f4f-82db-4ed9161890db.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="IMG-20251205-WA00251" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IMG-20251205-WA00251.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="IMG-20251205-WA0025" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\IMG-20251205-WA0025.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="130d7568-9401-4418-823c-abf331886b73" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\130d7568-9401-4418-823c-abf331886b73.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Captura de pantalla 2025-12-06 232800" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Captura de pantalla 2025-12-06 232800.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="IMG-20251205-WA0024" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\IMG-20251205-WA0024.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="venngadores" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\venngadores.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="FONDO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FONDO.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="IMG-20251205-WA0022" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\IMG-20251205-WA0022.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="IMAGEN DE RESGISTRO" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\IMAGEN DE RESGISTRO.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="IMAGEN DE CONTROL BOX" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\IMAGEN DE CONTROL BOX.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="1ba1c588-e19d-4ac0-88d0-1388c0d79770" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1ba1c588-e19d-4ac0-88d0-1388c0d79770.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="488076c8-b658-4ca7-98d9-cd15017a4bfd" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\488076c8-b658-4ca7-98d9-cd15017a4bfd.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="avengers_poster" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\avengers_poster.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IMG-20251205-WA0022" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IMG-20251205-WA0022.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="guardians_poster" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\guardians_poster.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ede9afa0-4fbb-4e08-8c3e-fab97924478b" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ede9afa0-4fbb-4e08-8c3e-fab97924478b.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IMAGEN PARA LOGIN" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IMAGEN PARA LOGIN.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="IMAGEN PARA LOGIN1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\IMAGEN PARA LOGIN1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="chainsaw_poster" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\chainsaw_poster.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="LOGO1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LOGO1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="1ba1c588-e19d-4ac0-88d0-1388c0d79770" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1ba1c588-e19d-4ac0-88d0-1388c0d79770.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Captura de pantalla 2025-12-06 130547" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Captura de pantalla 2025-12-06 130547.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Captura de pantalla 2025-12-06 232800" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Captura de pantalla 2025-12-06 232800.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="945f4b41-4fb5-43ca-b716-a06d5cdf1514" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\945f4b41-4fb5-43ca-b716-a06d5cdf1514.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IMG-20251205-WA00221" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IMG-20251205-WA00221.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="venngadores" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\venngadores.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="130d7568-9401-4418-823c-abf331886b73" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\130d7568-9401-4418-823c-abf331886b73.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IMAGEN DE RESGISTRO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IMAGEN DE RESGISTRO.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Captura de pantalla 2025-12-07 070918" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Captura de pantalla 2025-12-07 070918.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

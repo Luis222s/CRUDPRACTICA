@@ -163,6 +163,16 @@ namespace CapaPresentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Captura_de_pantalla_2025_12_07_070918 {
+            get {
+                object obj = ResourceManager.GetObject("Captura de pantalla 2025-12-07 070918", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap chainsaw_poster {
             get {
                 object obj = ResourceManager.GetObject("chainsaw_poster", resourceCulture);

@@ -229,5 +229,10 @@ namespace CapaPresentacion
             FrmPelicula frm = new FrmPelicula(IdPelicula.ToString());
             frm.Show();
         }
+
+        private void cmbCombo2_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

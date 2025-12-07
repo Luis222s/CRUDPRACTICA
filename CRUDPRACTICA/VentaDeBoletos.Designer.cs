@@ -232,6 +232,7 @@
             cmbCombo2.Name = "cmbCombo2";
             cmbCombo2.Size = new Size(138, 28);
             cmbCombo2.TabIndex = 34;
+            cmbCombo2.SelectedIndexChanged += cmbCombo2_SelectedIndexChanged_1;
             // 
             // cmbCombo1
             // 
