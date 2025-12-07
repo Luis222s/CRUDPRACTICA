@@ -131,10 +131,7 @@ namespace CapaPresentacion
             UsuarioSesion.Rol = "Cliente";
             UsuarioSesion.EsInvitado = true;
 
-            // 2. Mensaje de aviso
-            MessageBox.Show("Estás entrando en Modo Invitado.\n(No se guardará historial de tus compras)",
-                            "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+          
             // 3. Abrimos la Cartelera
             FrmMenuPrincipal menu = new FrmMenuPrincipal();
             menu.Show();

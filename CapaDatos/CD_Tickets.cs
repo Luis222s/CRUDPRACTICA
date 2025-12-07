@@ -75,6 +75,48 @@ namespace CapaDatos
             return tabla;
         }
 
+        // Método Editar
+        public void Editar(string codigo, string horario, decimal precio)
+        {
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "EditarTicket";
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@codigoTicket", codigo);
+            comando.Parameters.AddWithValue("@nuevoHorario", horario);
+            comando.Parameters.AddWithValue("@nuevoPrecio", precio);
+            comando.ExecuteNonQuery();
+            comando.Parameters.Clear();
+            conexion.CerrarConexion();
+        }
+
+        // Método Eliminar
+        public void Eliminar(string codigo)
+        {
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "EliminarTicket";
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@codigoTicket", codigo);
+            comando.ExecuteNonQuery();
+            comando.Parameters.Clear();
+            conexion.CerrarConexion();
+        }
+
+        // Método Editar
+        public void Editar(string codigo, string horario, decimal precio, int idPelicula) // <-- AGREGAR idPelicula
+        {
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "EditarTicket";
+            comando.CommandType = CommandType.StoredProcedure;
+
+            comando.Parameters.AddWithValue("@codigoTicket", codigo);
+            comando.Parameters.AddWithValue("@nuevoHorario", horario);
+            comando.Parameters.AddWithValue("@nuevoPrecio", precio);
+            comando.Parameters.AddWithValue("@nuevoIdPelicula", idPelicula); // <-- NUEVA LÍNEA
+
+            comando.ExecuteNonQuery();
+            comando.Parameters.Clear();
+            conexion.CerrarConexion();
+        }
     }
 }
 

@@ -35,23 +35,24 @@
             Btn_Cerrar1 = new PictureBox();
             Btn_Minimizar = new PictureBox();
             panel2 = new Panel();
-            btninvitado = new Button();
             lnkRegistro = new LinkLabel();
+            pictureBox1 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)Btn_Cerrar1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Btn_Minimizar).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // btn_login
             // 
-            btn_login.BackColor = SystemColors.ActiveCaptionText;
+            btn_login.BackColor = SystemColors.ButtonFace;
             btn_login.Cursor = Cursors.Hand;
             btn_login.FlatAppearance.BorderSize = 0;
             btn_login.FlatAppearance.MouseDownBackColor = Color.FromArgb(64, 64, 64);
             btn_login.FlatAppearance.MouseOverBackColor = Color.FromArgb(64, 64, 64);
             btn_login.FlatStyle = FlatStyle.Flat;
             btn_login.Font = new Font("Segoe Fluent Icons", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btn_login.ForeColor = SystemColors.ControlLightLight;
-            btn_login.Location = new Point(322, 505);
+            btn_login.ForeColor = SystemColors.ActiveCaptionText;
+            btn_login.Location = new Point(402, 499);
             btn_login.Margin = new Padding(3, 4, 3, 4);
             btn_login.Name = "btn_login";
             btn_login.Size = new Size(131, 49);
@@ -84,7 +85,7 @@
             Btn_Cerrar1.BackColor = Color.Transparent;
             Btn_Cerrar1.Cursor = Cursors.Hand;
             Btn_Cerrar1.Image = (Image)resources.GetObject("Btn_Cerrar1.Image");
-            Btn_Cerrar1.Location = new Point(982, 16);
+            Btn_Cerrar1.Location = new Point(843, 45);
             Btn_Cerrar1.Margin = new Padding(3, 4, 3, 4);
             Btn_Cerrar1.Name = "Btn_Cerrar1";
             Btn_Cerrar1.Size = new Size(34, 43);
@@ -98,7 +99,7 @@
             Btn_Minimizar.BackColor = Color.Transparent;
             Btn_Minimizar.Cursor = Cursors.Hand;
             Btn_Minimizar.Image = (Image)resources.GetObject("Btn_Minimizar.Image");
-            Btn_Minimizar.Location = new Point(913, 16);
+            Btn_Minimizar.Location = new Point(774, 45);
             Btn_Minimizar.Margin = new Padding(3, 4, 3, 4);
             Btn_Minimizar.Name = "Btn_Minimizar";
             Btn_Minimizar.Size = new Size(43, 39);
@@ -117,53 +118,45 @@
             panel2.TabIndex = 16;
             panel2.MouseDown += panel2_MouseDown;
             // 
-            // btninvitado
-            // 
-            btninvitado.BackColor = SystemColors.ActiveCaptionText;
-            btninvitado.Cursor = Cursors.Hand;
-            btninvitado.FlatAppearance.BorderSize = 0;
-            btninvitado.FlatAppearance.MouseDownBackColor = Color.FromArgb(64, 64, 64);
-            btninvitado.FlatAppearance.MouseOverBackColor = Color.FromArgb(64, 64, 64);
-            btninvitado.FlatStyle = FlatStyle.Flat;
-            btninvitado.Font = new Font("Segoe Fluent Icons", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btninvitado.ForeColor = SystemColors.ButtonFace;
-            btninvitado.Location = new Point(543, 505);
-            btninvitado.Margin = new Padding(3, 4, 3, 4);
-            btninvitado.Name = "btninvitado";
-            btninvitado.Size = new Size(126, 49);
-            btninvitado.TabIndex = 1;
-            btninvitado.Text = "Entrar Como Invitado";
-            btninvitado.UseVisualStyleBackColor = false;
-            btninvitado.Click += btninvitado_Click;
-            // 
             // lnkRegistro
             // 
+            lnkRegistro.ActiveLinkColor = Color.Blue;
             lnkRegistro.AutoSize = true;
-            lnkRegistro.BackColor = SystemColors.ActiveCaptionText;
+            lnkRegistro.BackColor = Color.White;
             lnkRegistro.ForeColor = SystemColors.ControlLightLight;
-            lnkRegistro.LinkColor = Color.Red;
-            lnkRegistro.Location = new Point(335, 580);
+            lnkRegistro.LinkColor = Color.Blue;
+            lnkRegistro.Location = new Point(306, 574);
             lnkRegistro.Name = "lnkRegistro";
             lnkRegistro.Size = new Size(322, 20);
             lnkRegistro.TabIndex = 17;
             lnkRegistro.TabStop = true;
             lnkRegistro.Text = "¿NO TIENES UNA CUENTA?, CREATE UNA AQUI";
-lnkRegistro.LinkClicked += lnkRegistro_LinkClicked;
+            lnkRegistro.LinkClicked += lnkRegistro_LinkClicked;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.LOGO1;
+            pictureBox1.Location = new Point(322, 65);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(270, 150);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 18;
+            pictureBox1.TabStop = false;
             // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
-            ClientSize = new Size(1040, 647);
-            Controls.Add(lnkRegistro);
-            Controls.Add(btninvitado);
-            Controls.Add(panel2);
+            ClientSize = new Size(899, 621);
+            Controls.Add(pictureBox1);
             Controls.Add(Btn_Cerrar1);
             Controls.Add(Btn_Minimizar);
+            Controls.Add(lnkRegistro);
             Controls.Add(txt_password);
             Controls.Add(txt_user);
             Controls.Add(btn_login);
+            Controls.Add(panel2);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(3, 4, 3, 4);
             Name = "Login";
@@ -172,6 +165,7 @@ lnkRegistro.LinkClicked += lnkRegistro_LinkClicked;
             Load += Login_Load;
             ((System.ComponentModel.ISupportInitialize)Btn_Cerrar1).EndInit();
             ((System.ComponentModel.ISupportInitialize)Btn_Minimizar).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -184,7 +178,7 @@ lnkRegistro.LinkClicked += lnkRegistro_LinkClicked;
         private PictureBox Btn_Cerrar1;
         private PictureBox Btn_Minimizar;
         private Panel panel2;
-        private Button btninvitado;
         private LinkLabel lnkRegistro;
+        private PictureBox pictureBox1;
     }
 }

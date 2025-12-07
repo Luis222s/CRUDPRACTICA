@@ -48,5 +48,20 @@ namespace CapaDatos
             return tabla;
         }
 
+        // Asegúrate de tener declarada SqlConnection conexion;
+        public DataTable MostrarTodasPeliculas()
+        {
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "SELECT IdPelicula, Titulo FROM Pelicula WHERE Activo = 1";
+            comando.CommandType = CommandType.Text;
+
+            SqlDataReader leer = comando.ExecuteReader();
+            DataTable tabla = new DataTable();
+            tabla.Load(leer);
+
+            conexion.CerrarConexion();
+            return tabla;
+        }
+
     }
 }

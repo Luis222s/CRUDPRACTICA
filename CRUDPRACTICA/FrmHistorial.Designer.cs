@@ -29,58 +29,58 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmHistorial));
-            dataGridView1 = new DataGridView();
+            dgvTickets = new DataGridView();
             Btn_guardar = new Button();
             Btn_editar = new Button();
             Btn_eliminar = new Button();
             pictureBox5 = new PictureBox();
             Btn_Minimizar = new PictureBox();
             Btn_Cerrar = new PictureBox();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvTickets).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Btn_Minimizar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Btn_Cerrar).BeginInit();
             SuspendLayout();
             // 
-            // dataGridView1
+            // dgvTickets
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(230, 96);
-            dataGridView1.Margin = new Padding(3, 4, 3, 4);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.ReadOnly = true;
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(854, 524);
-            dataGridView1.TabIndex = 0;
-            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
+            dgvTickets.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvTickets.Location = new Point(230, 96);
+            dgvTickets.Margin = new Padding(3, 4, 3, 4);
+            dgvTickets.Name = "dgvTickets";
+            dgvTickets.ReadOnly = true;
+            dgvTickets.RowHeadersWidth = 51;
+            dgvTickets.Size = new Size(854, 524);
+            dgvTickets.TabIndex = 0;
+            dgvTickets.CellContentClick += dataGridView1_CellContentClick;
             // 
             // Btn_guardar
             // 
-            Btn_guardar.BackColor = SystemColors.InfoText;
+            Btn_guardar.BackColor = SystemColors.ControlLightLight;
             Btn_guardar.FlatAppearance.BorderSize = 0;
             Btn_guardar.FlatAppearance.MouseDownBackColor = Color.FromArgb(64, 64, 64);
             Btn_guardar.FlatAppearance.MouseOverBackColor = Color.FromArgb(64, 64, 64);
             Btn_guardar.FlatStyle = FlatStyle.Flat;
             Btn_guardar.Font = new Font("Segoe MDL2 Assets", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            Btn_guardar.ForeColor = SystemColors.ControlLightLight;
+            Btn_guardar.ForeColor = SystemColors.ActiveCaptionText;
             Btn_guardar.Location = new Point(374, 646);
             Btn_guardar.Margin = new Padding(3, 4, 3, 4);
             Btn_guardar.Name = "Btn_guardar";
-            Btn_guardar.Size = new Size(86, 44);
+            Btn_guardar.Size = new Size(93, 44);
             Btn_guardar.TabIndex = 11;
-            Btn_guardar.Text = "Guardar";
+            Btn_guardar.Text = "Actualizar";
             Btn_guardar.UseVisualStyleBackColor = false;
             Btn_guardar.Click += Btn_guardar_Click;
             // 
             // Btn_editar
             // 
-            Btn_editar.BackColor = SystemColors.InfoText;
+            Btn_editar.BackColor = SystemColors.ControlLightLight;
             Btn_editar.FlatAppearance.BorderSize = 0;
             Btn_editar.FlatAppearance.MouseDownBackColor = Color.FromArgb(64, 64, 64);
             Btn_editar.FlatAppearance.MouseOverBackColor = Color.FromArgb(64, 64, 64);
-            Btn_editar.FlatStyle = FlatStyle.Flat;
+            Btn_editar.FlatStyle = FlatStyle.Popup;
             Btn_editar.Font = new Font("Segoe MDL2 Assets", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            Btn_editar.ForeColor = SystemColors.ControlLightLight;
+            Btn_editar.ForeColor = SystemColors.ActiveCaptionText;
             Btn_editar.Location = new Point(581, 646);
             Btn_editar.Margin = new Padding(3, 4, 3, 4);
             Btn_editar.Name = "Btn_editar";
@@ -92,13 +92,13 @@
             // 
             // Btn_eliminar
             // 
-            Btn_eliminar.BackColor = SystemColors.InfoText;
+            Btn_eliminar.BackColor = SystemColors.ControlLightLight;
             Btn_eliminar.FlatAppearance.BorderSize = 0;
             Btn_eliminar.FlatAppearance.MouseDownBackColor = Color.FromArgb(64, 64, 64);
             Btn_eliminar.FlatAppearance.MouseOverBackColor = Color.FromArgb(64, 64, 64);
             Btn_eliminar.FlatStyle = FlatStyle.Flat;
             Btn_eliminar.Font = new Font("Segoe MDL2 Assets", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            Btn_eliminar.ForeColor = SystemColors.ControlLightLight;
+            Btn_eliminar.ForeColor = SystemColors.ActiveCaptionText;
             Btn_eliminar.Location = new Point(775, 646);
             Btn_eliminar.Margin = new Padding(3, 4, 3, 4);
             Btn_eliminar.Name = "Btn_eliminar";
@@ -110,13 +110,13 @@
             // 
             // pictureBox5
             // 
-            pictureBox5.BackColor = Color.Transparent;
+            pictureBox5.BackColor = Color.Black;
             pictureBox5.Cursor = Cursors.Hand;
             pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
             pictureBox5.Location = new Point(647, 13);
             pictureBox5.Margin = new Padding(3, 4, 3, 4);
             pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new Size(47, 57);
+            pictureBox5.Size = new Size(67, 62);
             pictureBox5.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox5.TabIndex = 26;
             pictureBox5.TabStop = false;
@@ -124,7 +124,7 @@
             // 
             // Btn_Minimizar
             // 
-            Btn_Minimizar.BackColor = Color.Transparent;
+            Btn_Minimizar.BackColor = Color.Black;
             Btn_Minimizar.Cursor = Cursors.Hand;
             Btn_Minimizar.Image = (Image)resources.GetObject("Btn_Minimizar.Image");
             Btn_Minimizar.Location = new Point(1134, 13);
@@ -138,7 +138,7 @@
             // 
             // Btn_Cerrar
             // 
-            Btn_Cerrar.BackColor = Color.Transparent;
+            Btn_Cerrar.BackColor = Color.Black;
             Btn_Cerrar.Cursor = Cursors.Hand;
             Btn_Cerrar.Image = (Image)resources.GetObject("Btn_Cerrar.Image");
             Btn_Cerrar.Location = new Point(1213, 13);
@@ -154,7 +154,8 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImage = Properties.Resources._1ba1c588_e19d_4ac0_88d0_1388c0d79770;
+            BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1304, 794);
             Controls.Add(Btn_Cerrar);
             Controls.Add(Btn_Minimizar);
@@ -162,14 +163,14 @@
             Controls.Add(Btn_eliminar);
             Controls.Add(Btn_editar);
             Controls.Add(Btn_guardar);
-            Controls.Add(dataGridView1);
+            Controls.Add(dgvTickets);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(3, 4, 3, 4);
             Name = "FrmHistorial";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "VENTAS";
             Load += FrmHistorial_Load;
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvTickets).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ((System.ComponentModel.ISupportInitialize)Btn_Minimizar).EndInit();
             ((System.ComponentModel.ISupportInitialize)Btn_Cerrar).EndInit();
@@ -178,7 +179,7 @@
 
         #endregion
 
-        private DataGridView dataGridView1;
+        private DataGridView dgvTickets;
         private TextBox textBox4;
         private Button Btn_guardar;
         private Button Btn_editar;

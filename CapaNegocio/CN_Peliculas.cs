@@ -25,6 +25,11 @@ namespace CapaNegocio
         {
             return objetoCD.ObtenerPorId(id);
         }
+
+        public DataTable ObtenerListaPeliculas()
+        {
+            return objetoCD.MostrarTodasPeliculas();
+        }
     }
 }
 

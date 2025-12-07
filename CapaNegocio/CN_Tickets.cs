@@ -28,6 +28,21 @@ namespace CapaNegocio
         {
             return objetoCD.ObtenerAsientos(idSala);
         }
+
+        public void EditarTicket(string codigo, string horario, string precio)
+        {
+            objetoCD.Editar(codigo, horario, Convert.ToDecimal(precio));
+        }
+
+        public void EliminarTicket(string codigo)
+        {
+            objetoCD.Eliminar(codigo);
+        }
+        public void EditarTicket(string codigo, string horario, string precio, string idPelicula) // <-- AGREGAR idPelicula
+        {
+            // Convertimos a entero antes de enviarlo a la capa de datos
+            objetoCD.Editar(codigo, horario, Convert.ToDecimal(precio), Convert.ToInt32(idPelicula));
+        }
     }
 
 }

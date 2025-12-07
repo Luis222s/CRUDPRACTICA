@@ -49,7 +49,7 @@ namespace CapaPresentacion
 
         private void btnReportes_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Módulo de Reportes en construcción.");
+            AbrirFormulario(new FrmReportes());
         }
 
         private void btnSalir_Click(object sender, EventArgs e)

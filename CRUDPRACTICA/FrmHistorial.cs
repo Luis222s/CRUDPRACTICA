@@ -30,13 +30,13 @@ namespace CapaPresentacion
 
                 // Llenamos la tabla con el historial de SQL
                 // (Asegúrate de que tu DataGridView se llame dataGridView1 en el diseño)
-                dataGridView1.DataSource = negocio.VerHistorialVentas();
+                dgvTickets.DataSource = negocio.VerHistorialVentas();
 
                 // Ajustes de diseño para la tabla
-                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                dataGridView1.AllowUserToAddRows = false;
-                dataGridView1.ReadOnly = true;
-                dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                dgvTickets.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                dgvTickets.AllowUserToAddRows = false;
+                dgvTickets.ReadOnly = true;
+                dgvTickets.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             }
             catch (Exception ex)
             {
@@ -49,33 +49,101 @@ namespace CapaPresentacion
         // Botón "Ver Ticket" (El que antes era Editar)
         private void Btn_editar_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count > 0)
+            if (dgvTickets.SelectedRows.Count > 0)
             {
-                // Obtenemos datos de la fila seleccionada
-                string codigo = dataGridView1.CurrentRow.Cells["CodigoTicket"].Value.ToString();
-                string peli = dataGridView1.CurrentRow.Cells["Pelicula"].Value.ToString();
-                string total = dataGridView1.CurrentRow.Cells["PrecioTotal"].Value.ToString();
+                try
+                {
+                    if (dgvTickets.SelectedRows.Count > 0) // Asumo que tu tabla se llama dgvTickets
+                    {
+                        try
+                        {
+                            // --- USAR NOMBRES EXACTOS DE LAS COLUMNAS ---
 
-                MessageBox.Show($"TICKET SELECCIONADO:\n\nCódigo: {codigo}\nPelícula: {peli}\nTotal: ${total}",
-                                "Detalle de Venta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            string codigo = dgvTickets.CurrentRow.Cells["CodigoTicket"].Value.ToString();
+                            string pelicula = dgvTickets.CurrentRow.Cells["Pelicula"].Value.ToString();
+                            string horario = dgvTickets.CurrentRow.Cells["Horario"].Value.ToString();
+                            string precio = dgvTickets.CurrentRow.Cells["PrecioTotal"].Value.ToString();
+                            string idPelicula = dgvTickets.CurrentRow.Cells["IdPelicula"].Value.ToString(); // <-- NUEVO
+
+                            // PASAMOS EL ID AL FORMULARIO DE EDICIÓN
+                            FrmEditarTicket frmEditar = new FrmEditarTicket(codigo, pelicula, horario, precio, idPelicula); // <-- DEBEMOS EDITAR ESTO
+
+                            if (frmEditar.ShowDialog() == DialogResult.OK)
+                            {
+                                // Refrescar tabla si la edición fue exitosa
+                                CargarDatosHistorial();
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Error al intentar editar el ticket: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Por favor, selecciona una fila para editar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al intentar editar el ticket: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {
-                MessageBox.Show("Por favor selecciona una venta de la lista.");
+                MessageBox.Show("Por favor, selecciona una fila para editar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
         // Botón "Anular" (El que antes era Eliminar)
         private void Btn_eliminar_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Función de anular venta disponible próximamente (Requiere permisos de Admin).");
+            // 1. Verificar si hay una fila seleccionada
+            if (dgvTickets.SelectedRows.Count > 0)
+            {
+                // 2. Obtener el ID del ticket de la fila actual
+                string codigoTicket = dgvTickets.CurrentRow.Cells["CodigoTicket"].Value.ToString();
+
+                // 3. Pedir confirmación al usuario
+                DialogResult resultado = MessageBox.Show(
+                    "¿Está seguro que desea ANULAR y eliminar el ticket con código " + codigoTicket + "?",
+                    "Confirmar Eliminación",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning);
+
+                if (resultado == DialogResult.Yes)
+                {
+                    try
+                    {
+                        // 4. Ejecutar la eliminación en la capa de negocio
+                        CN_Tickets negocio = new CN_Tickets();
+                        negocio.EliminarTicket(codigoTicket); // Llamada al método que creamos
+
+                        MessageBox.Show("Venta anulada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        // 5. Refrescar la tabla para ver el cambio
+                        CargarDatosHistorial();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error al intentar anular la venta: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Por favor, selecciona una fila para anular.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         // Botón "Exportar" (El que antes era Guardar)
         private void Btn_guardar_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Función Exportar a Excel en construcción.");
+            // Asumiendo que tu método de carga de tabla se llama MostrarTickets()
+            CargarDatosHistorial();
+            MessageBox.Show("Tabla de historial actualizada.", "Actualización", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+        
 
         // Botón Salir (Casita)
         private void pictureBox5_Click(object sender, EventArgs e)

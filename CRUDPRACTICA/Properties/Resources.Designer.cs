@@ -73,6 +73,26 @@ namespace CapaPresentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _1ba1c588_e19d_4ac0_88d0_1388c0d79770 {
+            get {
+                object obj = ResourceManager.GetObject("1ba1c588-e19d-4ac0-88d0-1388c0d79770", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _488076c8_b658_4ca7_98d9_cd15017a4bfd {
+            get {
+                object obj = ResourceManager.GetObject("488076c8-b658-4ca7-98d9-cd15017a4bfd", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _5ff49aff_5f59_4f4f_82db_4ed9161890db {
             get {
                 object obj = ResourceManager.GetObject("5ff49aff-5f59-4f4f-82db-4ed9161890db", resourceCulture);
@@ -193,6 +213,16 @@ namespace CapaPresentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap IMAGEN_DE_RESGISTRO {
+            get {
+                object obj = ResourceManager.GetObject("IMAGEN DE RESGISTRO", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap IMAGEN_PARA_LOGIN {
             get {
                 object obj = ResourceManager.GetObject("IMAGEN PARA LOGIN", resourceCulture);
@@ -266,6 +296,16 @@ namespace CapaPresentacion.Properties {
         internal static System.Drawing.Bitmap LOGO {
             get {
                 object obj = ResourceManager.GetObject("LOGO", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap LOGO1 {
+            get {
+                object obj = ResourceManager.GetObject("LOGO1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
