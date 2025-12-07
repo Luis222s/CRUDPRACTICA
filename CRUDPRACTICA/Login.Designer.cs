@@ -135,10 +135,11 @@
             // 
             // pictureBox1
             // 
+            pictureBox1.BorderStyle = BorderStyle.FixedSingle;
             pictureBox1.Image = Properties.Resources.LOGO1;
-            pictureBox1.Location = new Point(322, 65);
+            pictureBox1.Location = new Point(322, 12);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(270, 150);
+            pictureBox1.Size = new Size(270, 203);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 18;
             pictureBox1.TabStop = false;

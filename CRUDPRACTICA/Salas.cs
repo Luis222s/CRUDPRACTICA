@@ -25,11 +25,11 @@ namespace CapaPresentacion
         private List<Button> botonesAsiento = new List<Button>();
         private List<string> asientosSeleccionados = new List<string>();
 
-        // CONSTRUCTOR
         public Salas(int id, string titulo, string horario, int cantidad, decimal total, string tipo, Image imagenRecibida)
         {
             InitializeComponent();
 
+            // 1. Guardar variables
             this.idPelicula = id;
             this.horario = horario;
             this.tituloPelicula = titulo;
@@ -38,22 +38,31 @@ namespace CapaPresentacion
             this.tipoEntrada = tipo;
             this.ImagenPelicula = imagenRecibida;
 
-            // Determinar Sala
+            // 2. Determinar Sala y Texto
             int idSalaDestino = (tipo.Contains("VIP")) ? 3 : 1;
-            string tipoAsientos = (idSalaDestino == 3) ? "VIP" : "NORMAL";
+            string textSala = (idSalaDestino == 3) ? "VIP" : "NORMAL"; // Declarada aquí para que no falle
 
-            // Mostrar Info
-            label9.Text = $"Total: ${total}";
-
-            if (this.Controls.Find("lblTipoSala", true).FirstOrDefault() is Label lbl)
+            // 3. Mostrar Info en Pantalla
+            // Usamos try-catch por seguridad visual, pero la variable 'textSala' ya existe
+            try
             {
-                lbl.Text = $"CATEGORÍA: {tipoAsientos} (Sala {idSalaDestino})";
-                lbl.ForeColor = (tipoAsientos == "VIP") ? Color.Yellow : Color.White;
-            }
+                if (lblTipoSala != null)
+                {
+                    lblTipoSala.Text = $"CATEGORÍA: {textSala} (Sala {idSalaDestino})";
+                    lblTipoSala.ForeColor = (textSala == "VIP") ? Color.Yellow : Color.White;
+                }
 
-            // CARGAR ASIENTOS GRÁFICOS
+                if (label9 != null)
+                {
+                    label9.Text = $"Total: ${total}";
+                }
+            }
+            catch { }
+
+            // 4. Cargar Asientos Gráficos
             CargarAsientosDeBaseDatos(idSalaDestino);
 
+            // 5. Diseño
             ConfigurarBotonRedondo();
         }
 

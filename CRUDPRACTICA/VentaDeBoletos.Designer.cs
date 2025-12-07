@@ -382,7 +382,7 @@
             label11.AutoSize = true;
             label11.Font = new Font("Segoe MDL2 Assets", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label11.ForeColor = SystemColors.Control;
-            label11.Location = new Point(445, 0);
+            label11.Location = new Point(442, 12);
             label11.Name = "label11";
             label11.Size = new Size(133, 40);
             label11.TabIndex = 21;
