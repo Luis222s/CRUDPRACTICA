@@ -33,6 +33,8 @@
             btnCerrar = new Button();
             lblVentaTotal = new Label();
             lblDetalleVenta = new Label();
+            btnEditar = new Button();
+            btnEliminar = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvVentas).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvDetalle).BeginInit();
             SuspendLayout();
@@ -59,10 +61,10 @@
             // 
             // btnCerrar
             // 
-            btnCerrar.BackColor = Color.Gray;
+            btnCerrar.BackColor = Color.FromArgb(255, 192, 128);
             btnCerrar.FlatAppearance.BorderSize = 0;
             btnCerrar.Font = new Font("Century", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnCerrar.Location = new Point(90, 444);
+            btnCerrar.Location = new Point(87, 456);
             btnCerrar.Name = "btnCerrar";
             btnCerrar.Size = new Size(118, 50);
             btnCerrar.TabIndex = 2;
@@ -94,11 +96,39 @@
             lblDetalleVenta.Text = "Detalle de la Venta";
             lblDetalleVenta.Click += lblDetalleVenta_Click;
             // 
+            // btnEditar
+            // 
+            btnEditar.BackColor = Color.FromArgb(255, 255, 128);
+            btnEditar.FlatAppearance.BorderSize = 0;
+            btnEditar.Font = new Font("Century", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnEditar.Location = new Point(87, 550);
+            btnEditar.Name = "btnEditar";
+            btnEditar.Size = new Size(118, 50);
+            btnEditar.TabIndex = 5;
+            btnEditar.Text = "Editar";
+            btnEditar.UseVisualStyleBackColor = false;
+            btnEditar.Click += btnEditar_Click;
+            // 
+            // btnEliminar
+            // 
+            btnEliminar.BackColor = Color.FromArgb(255, 128, 128);
+            btnEliminar.FlatAppearance.BorderSize = 0;
+            btnEliminar.Font = new Font("Century", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnEliminar.Location = new Point(87, 645);
+            btnEliminar.Name = "btnEliminar";
+            btnEliminar.Size = new Size(118, 50);
+            btnEliminar.TabIndex = 6;
+            btnEliminar.Text = "Eliminar";
+            btnEliminar.UseVisualStyleBackColor = false;
+            btnEliminar.Click += btnEliminar_Click;
+            // 
             // FrmHistorialVentas
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1121, 927);
+            Controls.Add(btnEliminar);
+            Controls.Add(btnEditar);
             Controls.Add(lblDetalleVenta);
             Controls.Add(lblVentaTotal);
             Controls.Add(btnCerrar);
@@ -121,5 +151,7 @@
         private Button btnCerrar;
         private Label lblVentaTotal;
         private Label lblDetalleVenta;
+        private Button btnEditar;
+        private Button btnEliminar;
     }
 }

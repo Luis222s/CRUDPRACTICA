@@ -9,6 +9,7 @@ using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 
+
 namespace CapaPresentacion
 {
     public partial class Salas : Form
@@ -77,7 +78,7 @@ namespace CapaPresentacion
         {
             try
             {
-                CN_Tickets negocio = new CN_Tickets();
+                CN_Ventas negocio = new CN_Ventas();
                 DataTable tablaAsientos = negocio.TraerAsientos(idSala); // Trae A1, A2... desde SQL
 
                 RenderizarBotones(tablaAsientos); // Dibuja los botones
@@ -168,7 +169,7 @@ namespace CapaPresentacion
         // --- BOTÓN CONFIRMAR (GUARDAR VENTA) ---
         private void Btn_Confirmar_Click(object sender, EventArgs e)
         {
-            // 1. VALIDACIÓN DE CANTIDAD
+            // 1. Validar que la cantidad de asientos coincida con los boletos
             if (asientosSeleccionados.Count != cantidadBoletos)
             {
                 MessageBox.Show($"Faltan asientos. Seleccionaste {asientosSeleccionados.Count} de {cantidadBoletos}.", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -177,38 +178,59 @@ namespace CapaPresentacion
 
             try
             {
-                // CAMBIO PRINCIPAL: Usamos CN_Tickets en vez de CN_Ventas
-                CN_Tickets negocio = new CN_Tickets();
+                // CAMBIO CRUCIAL: Usamos CN_Ventas (Sistema Nuevo) en lugar de CN_Tickets
+                CN_Ventas negocio = new CN_Ventas();
 
-                // A. Preparar Datos
-                Guid usuarioId = Login.UsuarioSesion != null ? Login.UsuarioSesion.Id : Guid.Empty;
+                // A. Preparar Datos Generales
+                Guid usuarioId = Login.UsuarioSesion != null ? Login.UsuarioSesion.Id : Guid.NewGuid();
 
-                // Determinamos ID de Sala (3=VIP, 1=Normal)
-                int idSala = (tipoEntrada.Contains("VIP")) ? 3 : 1;
+                // Generamos un código visible único para el recibo
+                string codigoTicket = "TKT-" + DateTime.Now.ToString("mmss") + "-" + new Random().Next(100, 999).ToString();
 
-                int metodoPago = 1; // 1 = Efectivo (Por defecto)
-
-                // B. Preparar el texto de detalle (Asientos + Combos)
-                // Como la tabla Tickets es una sola fila, guardamos la lista de asientos en el campo de texto
-                string listaAsientos = string.Join(", ", asientosSeleccionados);
-                string detalleProductos = $"Boletos ({listaAsientos}) + Combos";
-
-                // C. GUARDAR EN TABLA 'TICKETS'
-                // Usamos un ID de asiento fijo (1) porque guardamos los reales en el texto 'detalleProductos'
-                // Esto evita errores de Foreign Key si el asiento A1 no es el ID 1 exacto.
-                string codigoTicket = negocio.RegistrarVenta(
+                // B. GUARDAR CABECERA (Tabla 'VentaCabecera')
+                // Esto devuelve el ID de la venta (ej: 25) para usarlo en los detalles
+                int idVenta = negocio.RegistrarVenta(
                     usuarioId,
                     this.idPelicula,
-                    idSala,
-                    this.horario,
-                    1, // AsientoId (Genérico)
-                    metodoPago,
                     this.totalPagar,
-                    detalleProductos // Guardamos aquí la lista de asientos y combos
+                    this.horario,
+                    codigoTicket
                 );
 
+                // C. GUARDAR DETALLES (Tabla 'VentaDetalle')
+
+                // 1. Guardar cada Asiento individualmente
+                decimal precioBoleto = (tipoEntrada.Contains("VIP")) ? 300 : 125;
+
+                foreach (string asiento in asientosSeleccionados)
+                {
+                    // Guardamos cada asiento como un item separado
+                    negocio.RegistrarDetalle(
+                        idVenta,
+                        $"Boleto {tipoEntrada} - Asiento {asiento}",
+                        precioBoleto,
+                        1
+                    );
+                }
+
+                // 2. Guardar Combos (Calculamos la diferencia del total)
+                decimal totalBoletos = cantidadBoletos * precioBoleto;
+                decimal costoCombos = this.totalPagar - totalBoletos;
+
+                if (costoCombos > 0)
+                {
+                    // Si hay dinero extra, es porque compró comida
+                    negocio.RegistrarDetalle(
+                        idVenta,
+                        "Consumo Dulcería (Combos y Bebidas)",
+                        costoCombos,
+                        1
+                    );
+                }
+
                 // D. FINALIZAR
-                MessageBox.Show($"¡Compra Exitosa!\n\nCódigo de Ticket: {codigoTicket}\nAsientos: {listaAsientos}", "CineLux", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                string listaAsientos = string.Join(", ", asientosSeleccionados);
+                MessageBox.Show($"¡Compra Exitosa!\n\nCódigo: {codigoTicket}\nAsientos: {listaAsientos}\n\n(Guardado en el Historial Detallado)", "CineLux", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 // Volver al inicio
                 Cartelera inicio = new Cartelera();
@@ -217,7 +239,7 @@ namespace CapaPresentacion
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al guardar en Tickets: " + ex.Message, "Error");
+                MessageBox.Show("Error al guardar venta: " + ex.Message, "Error Crítico");
             }
         }
 

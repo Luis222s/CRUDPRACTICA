@@ -41,11 +41,6 @@ namespace CapaPresentacion
             AbrirFormulario(new Cartelera());
         }
 
-        private void btnVentas_Click(object sender, EventArgs e)
-        {
-            AbrirFormulario(new FrmHistorial());
-        }
-
         private void btnReportes_Click(object sender, EventArgs e)
         {
             AbrirFormulario(new FrmReportes());

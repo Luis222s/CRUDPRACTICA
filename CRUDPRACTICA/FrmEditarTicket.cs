@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using CapaNegocio;
 using System.Linq;
+using CapaDatos;
 
 namespace CapaPresentacion
 {
@@ -37,31 +38,29 @@ namespace CapaPresentacion
         private Label lblHorario;
         private Label lblPrecio;
 
-        // ========== CONSTRUCTOR PRINCIPAL (UNIFICADO) ==========
-        // Este recibe los 5 datos que manda el historial
+        // Declaración de components (necesaria para Dispose)
+        private System.ComponentModel.IContainer components = null;
+
+        // ========== CONSTRUCTOR PRINCIPAL ==========
         public FrmEditarTicket(string codigo, string pelicula, string horario, string precio, string idPelicula)
         {
-            // 1. Crear el diseño visual
+            // Creamos la interfaz manualmente
             InitializeCustomComponents();
             ApplyCustomDesign();
 
-            // 2. Cargar datos en los controles
+            // Cargar datos
+            CargarPeliculas(idPelicula);
+            LlenarHorarios();
+
+            cmbHorario.Text = horario;
             txtCódigo.Text = codigo;
             txtCódigo.ReadOnly = true;
-
             txtPelícula.Text = pelicula;
             txtPelícula.ReadOnly = true;
-
             txtPrecio.Text = precio;
-
-            // 3. Llenar Combos
-            LlenarHorarios();
-            cmbHorario.Text = horario;
-
-            CargarPeliculas(idPelicula);
         }
 
-        // Constructor vacío (Requerido por Visual Studio)
+        // Constructor vacío (Requerido)
         public FrmEditarTicket()
         {
             InitializeCustomComponents();
@@ -81,7 +80,6 @@ namespace CapaPresentacion
 
             if (dtPeliculas.Rows.Count > 0 && !string.IsNullOrEmpty(idPeliculaActual))
             {
-                // Convertimos el ID a entero para seleccionarlo
                 int id = 0;
                 if (int.TryParse(idPeliculaActual, out id))
                 {
@@ -102,6 +100,7 @@ namespace CapaPresentacion
         {
             try
             {
+                // 1. Validaciones
                 if (string.IsNullOrWhiteSpace(txtPrecio.Text) || cmbHorario.SelectedIndex == -1)
                 {
                     ShowCustomMessageBox("Faltan campos importantes.", "Error", MessageBoxIcon.Warning);
@@ -110,11 +109,13 @@ namespace CapaPresentacion
 
                 string nuevoIdPelicula = cmbPelicula.SelectedValue.ToString();
 
-                CN_Tickets negocio = new CN_Tickets();
-                // Enviamos los datos editados a la BD
-                negocio.EditarTicket(txtCódigo.Text, cmbHorario.Text, txtPrecio.Text, nuevoIdPelicula);
+                // 2. CORRECCIÓN: Usar CN_Ventas en lugar de CN_Tickets
+                CN_Ventas negocio = new CN_Ventas();
 
-                ShowCustomMessageBox("¡Ticket actualizado correctamente!", "Éxito", MessageBoxIcon.Information);
+                // 3. Llamar al método EditarVenta (Asegúrate de haberlo creado en CN_Ventas como vimos antes)
+                negocio.EditarVenta(txtCódigo.Text, cmbHorario.Text, txtPrecio.Text, nuevoIdPelicula);
+
+                ShowCustomMessageBox("¡Venta actualizada correctamente!", "Éxito", MessageBoxIcon.Information);
 
                 this.DialogResult = DialogResult.OK;
                 this.Close();
@@ -167,11 +168,10 @@ namespace CapaPresentacion
             lblHorario = CreateStyledLabel("HORARIO:", y); cmbHorario = CreateStyledComboBox(y + 35); y += 95;
             lblPrecio = CreateStyledLabel("PRECIO (RD$):", y); txtPrecio = CreateStyledTextBox(y + 35); txtPrecio.PlaceholderText = "0.00";
 
-            // Se elimina txtPelícula del diseño visual porque usamos cmbPelicula
-            contentPanel.Controls.AddRange(new Control[] { lblCodigo, txtCódigo, lblPelicula, cmbPelicula, lblHorario, cmbHorario, lblPrecio, txtPrecio });
+            // Inicializamos txtPelícula aunque esté oculto para evitar errores
+            txtPelícula = new TextBox { Visible = false };
 
-            // Inicializamos el TextBox oculto para evitar errores si se referencia, aunque visualmente usamos el Combo
-            txtPelícula = new TextBox();
+            contentPanel.Controls.AddRange(new Control[] { lblCodigo, txtCódigo, lblPelicula, cmbPelicula, lblHorario, cmbHorario, lblPrecio, txtPrecio });
 
             // Footer
             footerPanel = new Panel { Dock = DockStyle.Bottom, Height = 100, BackColor = secondaryDark, Padding = new Padding(40, 25, 40, 25) };
@@ -227,5 +227,14 @@ namespace CapaPresentacion
             get { const int CS_DROPSHADOW = 0x20000; CreateParams cp = base.CreateParams; cp.ClassStyle |= CS_DROPSHADOW; return cp; }
         }
 
+        // --- LIMPIEZA DE MEMORIA (IMPORTANTE) ---
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null)) components.Dispose();
+            base.Dispose(disposing);
+        }
+
+        // Eventos vacíos para compatibilidad
+        private void FrmEditarTicket_Load(object sender, EventArgs e) { }
     }
 }

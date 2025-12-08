@@ -1,10 +1,6 @@
-﻿using CapaDatos;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using CapaDatos;
 
 namespace CapaNegocio
 {
@@ -12,24 +8,50 @@ namespace CapaNegocio
     {
         private CD_Ventas objetoCD = new CD_Ventas();
 
-        public int RegistrarVenta(Guid idUsuario, int idPelicula, decimal total, string horario, string codigoTicket)
+        // Registrar (Ya lo tenías)
+        public int RegistrarVenta(Guid id, int peli, decimal total, string horario, string codigo)
         {
-            return objetoCD.RegistrarCabecera(idUsuario, idPelicula, total, horario, codigoTicket);
+            return objetoCD.RegistrarCabecera(id, peli, total, horario, codigo);
+        }
+        public void RegistrarDetalle(int idVenta, string desc, decimal precio, int cant)
+        {
+            objetoCD.RegistrarDetalle(idVenta, desc, precio, cant);
         }
 
-        public void RegistrarDetalle(int idVenta, string descripcion, decimal precio, int cantidad)
+        // LEER (NUEVO)
+        public DataTable ObtenerVentasCabecera()
         {
-            objetoCD.RegistrarDetalle(idVenta, descripcion, precio, cantidad);
+            return objetoCD.ListarVentasCabecera();
         }
 
-        public DataTable ObtenerVentas()
+        public DataTable ObtenerVentasDetalle(int idVenta)
         {
-            return objetoCD.ListarVentas();
+            return objetoCD.ListarVentasDetalle(idVenta);
         }
 
-        public DataTable ObtenerDetalle(int idVenta)
+        
+
+        public void EliminarVenta(int idVenta)
         {
-            return objetoCD.ListarDetalle(idVenta);
+            objetoCD.EliminarVenta(idVenta);
+        }
+
+        // Puente para Editar Ticket
+        public void EditarTicket(string codigo, string horario, string precio, string idPelicula)
+        {
+            objetoCD.EditarTicket(codigo, horario, Convert.ToDecimal(precio), Convert.ToInt32(idPelicula));
+        }
+
+        // Puente para Traer Asientos (Error de Salas.cs)
+        public DataTable TraerAsientos(int idSala)
+        {
+            return objetoCD.ObtenerAsientos(idSala);
+        }
+
+
+        public void EditarVenta(string codigo, string horario, string total, string idPelicula)
+        {
+            objetoCD.EditarVenta(codigo, horario, Convert.ToDecimal(total), Convert.ToInt32(idPelicula));
         }
     }
 }

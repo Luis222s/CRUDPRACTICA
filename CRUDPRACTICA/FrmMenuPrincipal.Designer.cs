@@ -34,7 +34,6 @@
             btnMantenimiento = new Button();
             btnSalir = new Button();
             btnReportes = new Button();
-            btnVentas = new Button();
             pictureBox1 = new PictureBox();
             btnCartelera = new Button();
             panelContenedor = new Panel();
@@ -51,7 +50,6 @@
             panel1.Controls.Add(btnMantenimiento);
             panel1.Controls.Add(btnSalir);
             panel1.Controls.Add(btnReportes);
-            panel1.Controls.Add(btnVentas);
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(btnCartelera);
             panel1.Dock = DockStyle.Left;
@@ -68,9 +66,9 @@
             btnHistorialCompleto.FlatStyle = FlatStyle.Flat;
             btnHistorialCompleto.Font = new Font("Century", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnHistorialCompleto.ForeColor = Color.White;
-            btnHistorialCompleto.Location = new Point(22, 558);
+            btnHistorialCompleto.Location = new Point(63, 464);
             btnHistorialCompleto.Name = "btnHistorialCompleto";
-            btnHistorialCompleto.Size = new Size(283, 60);
+            btnHistorialCompleto.Size = new Size(192, 79);
             btnHistorialCompleto.TabIndex = 18;
             btnHistorialCompleto.Text = "Ventas Por Tickets";
             btnHistorialCompleto.UseVisualStyleBackColor = false;
@@ -119,7 +117,7 @@
             btnSalir.FlatStyle = FlatStyle.Flat;
             btnSalir.Font = new Font("Century", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnSalir.ForeColor = Color.White;
-            btnSalir.Location = new Point(63, 752);
+            btnSalir.Location = new Point(63, 689);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(192, 70);
             btnSalir.TabIndex = 3;
@@ -135,29 +133,13 @@
             btnReportes.FlatStyle = FlatStyle.Flat;
             btnReportes.Font = new Font("Century", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnReportes.ForeColor = Color.White;
-            btnReportes.Location = new Point(63, 649);
+            btnReportes.Location = new Point(63, 575);
             btnReportes.Name = "btnReportes";
             btnReportes.Size = new Size(192, 70);
             btnReportes.TabIndex = 2;
             btnReportes.Text = "Estadisticas";
             btnReportes.UseVisualStyleBackColor = false;
             btnReportes.Click += btnReportes_Click;
-            // 
-            // btnVentas
-            // 
-            btnVentas.BackColor = Color.Black;
-            btnVentas.FlatAppearance.BorderColor = Color.White;
-            btnVentas.FlatAppearance.BorderSize = 2;
-            btnVentas.FlatStyle = FlatStyle.Flat;
-            btnVentas.Font = new Font("Century", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnVentas.ForeColor = Color.White;
-            btnVentas.Location = new Point(42, 461);
-            btnVentas.Name = "btnVentas";
-            btnVentas.Size = new Size(236, 66);
-            btnVentas.TabIndex = 1;
-            btnVentas.Text = "Ventas General";
-            btnVentas.UseVisualStyleBackColor = false;
-            btnVentas.Click += btnVentas_Click;
             // 
             // pictureBox1
             // 
@@ -222,7 +204,6 @@
         private PictureBox pictureBox1;
         private Button btnSalir;
         private Button btnReportes;
-        private Button btnVentas;
         private Button btnMantenimiento;
         private Button button1;
         private Button btnHistorialCompleto;
