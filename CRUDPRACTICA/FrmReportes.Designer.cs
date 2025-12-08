@@ -42,7 +42,6 @@
             Btn_Minimizar = new PictureBox();
             pictureBox3 = new PictureBox();
             minimizar = new PictureBox();
-            pictureBox6 = new PictureBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -50,7 +49,6 @@
             ((System.ComponentModel.ISupportInitialize)Btn_Minimizar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)minimizar).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -211,20 +209,6 @@
             minimizar.TabStop = false;
             minimizar.Click += pictureBox4_Click;
             // 
-            // pictureBox6
-            // 
-            pictureBox6.BackColor = Color.Black;
-            pictureBox6.Cursor = Cursors.Hand;
-            pictureBox6.Image = (Image)resources.GetObject("pictureBox6.Image");
-            pictureBox6.Location = new Point(656, 34);
-            pictureBox6.Margin = new Padding(3, 4, 3, 4);
-            pictureBox6.Name = "pictureBox6";
-            pictureBox6.Size = new Size(67, 62);
-            pictureBox6.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox6.TabIndex = 32;
-            pictureBox6.TabStop = false;
-            pictureBox6.Click += pictureBox6_Click;
-            // 
             // FrmReportes
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -234,7 +218,6 @@
             ClientSize = new Size(1332, 767);
             Controls.Add(pictureBox3);
             Controls.Add(minimizar);
-            Controls.Add(pictureBox6);
             Controls.Add(Btn_Cerrar);
             Controls.Add(Btn_Minimizar);
             Controls.Add(panel1);
@@ -249,7 +232,6 @@
             ((System.ComponentModel.ISupportInitialize)Btn_Minimizar).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)minimizar).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ResumeLayout(false);
         }
 
@@ -267,6 +249,5 @@
         private PictureBox pictureBox2;
         private PictureBox pictureBox3;
         private PictureBox minimizar;
-        private PictureBox pictureBox6;
     }
 }

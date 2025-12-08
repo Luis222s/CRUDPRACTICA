@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            btnHistorialCompleto = new Button();
+            button1 = new Button();
+            btnMantenimiento = new Button();
             btnSalir = new Button();
             btnReportes = new Button();
             btnVentas = new Button();
@@ -43,6 +46,9 @@
             // 
             panel1.BackColor = Color.DarkSlateBlue;
             panel1.BackgroundImage = Properties.Resources._130d7568_9401_4418_823c_abf331886b73;
+            panel1.Controls.Add(btnHistorialCompleto);
+            panel1.Controls.Add(button1);
+            panel1.Controls.Add(btnMantenimiento);
             panel1.Controls.Add(btnSalir);
             panel1.Controls.Add(btnReportes);
             panel1.Controls.Add(btnVentas);
@@ -51,8 +57,59 @@
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(338, 791);
+            panel1.Size = new Size(338, 932);
             panel1.TabIndex = 2;
+            // 
+            // btnHistorialCompleto
+            // 
+            btnHistorialCompleto.BackColor = Color.Black;
+            btnHistorialCompleto.FlatAppearance.BorderColor = Color.White;
+            btnHistorialCompleto.FlatAppearance.BorderSize = 2;
+            btnHistorialCompleto.FlatStyle = FlatStyle.Flat;
+            btnHistorialCompleto.Font = new Font("Century", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnHistorialCompleto.ForeColor = Color.White;
+            btnHistorialCompleto.Location = new Point(22, 558);
+            btnHistorialCompleto.Name = "btnHistorialCompleto";
+            btnHistorialCompleto.Size = new Size(283, 60);
+            btnHistorialCompleto.TabIndex = 18;
+            btnHistorialCompleto.Text = "Ventas Por Tickets";
+            btnHistorialCompleto.UseVisualStyleBackColor = false;
+            btnHistorialCompleto.Click += btnHistorialCompleto_Click;
+            // 
+            // button1
+            // 
+            button1.BackColor = SystemColors.ActiveCaptionText;
+            button1.Cursor = Cursors.Hand;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatAppearance.MouseDownBackColor = Color.FromArgb(64, 64, 64);
+            button1.FlatAppearance.MouseOverBackColor = Color.FromArgb(64, 64, 64);
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Segoe Fluent Icons", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.ForeColor = SystemColors.ControlLightLight;
+            button1.Location = new Point(103, 878);
+            button1.Margin = new Padding(3, 4, 3, 4);
+            button1.Name = "button1";
+            button1.Size = new Size(116, 32);
+            button1.TabIndex = 17;
+            button1.Text = "CREADORES";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
+            // 
+            // btnMantenimiento
+            // 
+            btnMantenimiento.BackColor = Color.Black;
+            btnMantenimiento.FlatAppearance.BorderColor = Color.White;
+            btnMantenimiento.FlatAppearance.BorderSize = 2;
+            btnMantenimiento.FlatStyle = FlatStyle.Flat;
+            btnMantenimiento.Font = new Font("Century", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnMantenimiento.ForeColor = Color.White;
+            btnMantenimiento.Location = new Point(63, 353);
+            btnMantenimiento.Name = "btnMantenimiento";
+            btnMantenimiento.Size = new Size(192, 70);
+            btnMantenimiento.TabIndex = 4;
+            btnMantenimiento.Text = "Peliculas";
+            btnMantenimiento.UseVisualStyleBackColor = false;
+            btnMantenimiento.Click += btnMantenimiento_Click;
             // 
             // btnSalir
             // 
@@ -62,7 +119,7 @@
             btnSalir.FlatStyle = FlatStyle.Flat;
             btnSalir.Font = new Font("Century", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnSalir.ForeColor = Color.White;
-            btnSalir.Location = new Point(63, 658);
+            btnSalir.Location = new Point(63, 752);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(192, 70);
             btnSalir.TabIndex = 3;
@@ -78,11 +135,11 @@
             btnReportes.FlatStyle = FlatStyle.Flat;
             btnReportes.Font = new Font("Century", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnReportes.ForeColor = Color.White;
-            btnReportes.Location = new Point(63, 528);
+            btnReportes.Location = new Point(63, 649);
             btnReportes.Name = "btnReportes";
             btnReportes.Size = new Size(192, 70);
             btnReportes.TabIndex = 2;
-            btnReportes.Text = "Reportes";
+            btnReportes.Text = "Estadisticas";
             btnReportes.UseVisualStyleBackColor = false;
             btnReportes.Click += btnReportes_Click;
             // 
@@ -94,11 +151,11 @@
             btnVentas.FlatStyle = FlatStyle.Flat;
             btnVentas.Font = new Font("Century", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnVentas.ForeColor = Color.White;
-            btnVentas.Location = new Point(63, 385);
+            btnVentas.Location = new Point(42, 461);
             btnVentas.Name = "btnVentas";
-            btnVentas.Size = new Size(192, 70);
+            btnVentas.Size = new Size(236, 66);
             btnVentas.TabIndex = 1;
-            btnVentas.Text = "Ventas";
+            btnVentas.Text = "Ventas General";
             btnVentas.UseVisualStyleBackColor = false;
             btnVentas.Click += btnVentas_Click;
             // 
@@ -121,7 +178,7 @@
             btnCartelera.FlatStyle = FlatStyle.Flat;
             btnCartelera.Font = new Font("Century", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnCartelera.ForeColor = Color.White;
-            btnCartelera.Location = new Point(63, 256);
+            btnCartelera.Location = new Point(63, 246);
             btnCartelera.Name = "btnCartelera";
             btnCartelera.Size = new Size(192, 70);
             btnCartelera.TabIndex = 0;
@@ -135,7 +192,7 @@
             panelContenedor.Dock = DockStyle.Fill;
             panelContenedor.Location = new Point(338, 0);
             panelContenedor.Name = "panelContenedor";
-            panelContenedor.Size = new Size(1121, 791);
+            panelContenedor.Size = new Size(1121, 932);
             panelContenedor.TabIndex = 3;
             panelContenedor.Paint += panelContenedor_Paint;
             // 
@@ -146,7 +203,7 @@
             BackColor = Color.Black;
             BackgroundImage = Properties.Resources._945f4b41_4fb5_43ca_b716_a06d5cdf1514;
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(1459, 791);
+            ClientSize = new Size(1459, 932);
             Controls.Add(panelContenedor);
             Controls.Add(panel1);
             Name = "FrmMenuPrincipal";
@@ -166,5 +223,8 @@
         private Button btnSalir;
         private Button btnReportes;
         private Button btnVentas;
+        private Button btnMantenimiento;
+        private Button button1;
+        private Button btnHistorialCompleto;
     }
 }

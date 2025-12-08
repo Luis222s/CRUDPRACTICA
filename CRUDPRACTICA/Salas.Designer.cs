@@ -42,7 +42,6 @@
             btnAtras = new Button();
             label3 = new Label();
             pbMapaAsientos = new PictureBox();
-            label6 = new Label();
             panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbMapaAsientos).BeginInit();
@@ -191,7 +190,7 @@
             label3.BackColor = Color.White;
             label3.Font = new Font("Stencil", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.ForeColor = SystemColors.ActiveCaptionText;
-            label3.Location = new Point(233, 105);
+            label3.Location = new Point(219, 144);
             label3.Name = "label3";
             label3.Size = new Size(354, 35);
             label3.TabIndex = 28;
@@ -199,25 +198,14 @@
             // 
             // pbMapaAsientos
             // 
-            pbMapaAsientos.Image = Properties.Resources.Captura_de_pantalla_2025_12_07_070918;
-            pbMapaAsientos.Location = new Point(31, 157);
+            pbMapaAsientos.Image = Properties.Resources.FONDO;
+            pbMapaAsientos.Location = new Point(35, 203);
             pbMapaAsientos.Name = "pbMapaAsientos";
-            pbMapaAsientos.Size = new Size(770, 778);
+            pbMapaAsientos.Size = new Size(736, 491);
             pbMapaAsientos.SizeMode = PictureBoxSizeMode.AutoSize;
             pbMapaAsientos.TabIndex = 29;
             pbMapaAsientos.TabStop = false;
             pbMapaAsientos.Click += pbMapaAsientos_Click;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.BackColor = Color.White;
-            label6.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label6.Location = new Point(363, 201);
-            label6.Name = "label6";
-            label6.Size = new Size(146, 38);
-            label6.TabIndex = 30;
-            label6.Text = "PANTALLA";
             // 
             // Salas
             // 
@@ -225,7 +213,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(1338, 978);
-            Controls.Add(label6);
             Controls.Add(pbMapaAsientos);
             Controls.Add(label3);
             Controls.Add(btnAtras);

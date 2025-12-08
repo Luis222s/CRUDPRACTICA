@@ -59,6 +59,7 @@
             label13 = new Label();
             cmbEntrada = new ComboBox();
             btnAtras = new Button();
+            pictureBox7 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panel4.SuspendLayout();
@@ -66,6 +67,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
@@ -84,10 +86,10 @@
             // 
             // pictureBox2
             // 
-            pictureBox2.Location = new Point(275, 16);
+            pictureBox2.Location = new Point(273, 33);
             pictureBox2.Margin = new Padding(3, 4, 3, 4);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(211, 321);
+            pictureBox2.Size = new Size(222, 300);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 1;
             pictureBox2.TabStop = false;
@@ -250,7 +252,7 @@
             label9.AutoSize = true;
             label9.Font = new Font("Segoe MDL2 Assets", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label9.ForeColor = SystemColors.Control;
-            label9.Location = new Point(838, 227);
+            label9.Location = new Point(851, 226);
             label9.Name = "label9";
             label9.Size = new Size(146, 80);
             label9.TabIndex = 33;
@@ -261,7 +263,7 @@
             label8.AutoSize = true;
             label8.Font = new Font("Segoe MDL2 Assets", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label8.ForeColor = SystemColors.Control;
-            label8.Location = new Point(559, 236);
+            label8.Location = new Point(568, 236);
             label8.Name = "label8";
             label8.Size = new Size(153, 40);
             label8.TabIndex = 32;
@@ -283,7 +285,7 @@
             label6.AutoSize = true;
             label6.Font = new Font("Segoe MDL2 Assets", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label6.ForeColor = SystemColors.Control;
-            label6.Location = new Point(38, 236);
+            label6.Location = new Point(31, 236);
             label6.Name = "label6";
             label6.Size = new Size(136, 40);
             label6.TabIndex = 30;
@@ -444,13 +446,24 @@
             btnAtras.UseVisualStyleBackColor = false;
             btnAtras.Click += btnAtras_Click;
             // 
+            // pictureBox7
+            // 
+            pictureBox7.Image = Properties.Resources.LOGO;
+            pictureBox7.Location = new Point(30, 33);
+            pictureBox7.Name = "pictureBox7";
+            pictureBox7.Size = new Size(176, 141);
+            pictureBox7.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox7.TabIndex = 17;
+            pictureBox7.TabStop = false;
+            // 
             // VentaDeBoletos
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImage = Properties.Resources.Captura_de_pantalla_2025_12_07_2005172;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1030, 753);
+            Controls.Add(pictureBox7);
             Controls.Add(btnAtras);
             Controls.Add(label13);
             Controls.Add(cmbEntrada);
@@ -478,6 +491,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -514,5 +528,6 @@
         private Label label13;
         private ComboBox cmbEntrada;
         private Button btnAtras;
+        private PictureBox pictureBox7;
     }
 }

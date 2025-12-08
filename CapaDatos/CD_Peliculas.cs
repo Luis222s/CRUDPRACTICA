@@ -22,7 +22,7 @@ namespace CapaDatos
             comando.CommandType = CommandType.StoredProcedure;
 
             leer = comando.ExecuteReader();
-            tabla = new DataTable(); // <--- AGREGA ESTO AQUÍ PARA LIMPIAR ANTES DE CARGAR
+            tabla = new DataTable(); 
             tabla.Load(leer);
 
             conexion.CerrarConexion();
@@ -30,12 +30,11 @@ namespace CapaDatos
         }
 
 
-        // Método para buscar UNA película por su ID
         public DataTable ObtenerPorId(int idPelicula)
         {
             comando.Connection = conexion.AbrirConexion();
             comando.CommandText = "SELECT * FROM Pelicula WHERE IdPelicula = @id";
-            comando.CommandType = CommandType.Text; // Usamos consulta directa por rapidez
+            comando.CommandType = CommandType.Text; 
 
             comando.Parameters.AddWithValue("@id", idPelicula);
 
@@ -48,7 +47,6 @@ namespace CapaDatos
             return tabla;
         }
 
-        // Asegúrate de tener declarada SqlConnection conexion;
         public DataTable MostrarTodasPeliculas()
         {
             comando.Connection = conexion.AbrirConexion();
@@ -79,6 +77,57 @@ namespace CapaDatos
                 return (byte[])resultado;
             }
             return null;
+        }
+        // Método para Insertar (Con Imagen)
+        public void Insertar(string titulo, string genero, int duracion, string clasificacion, DateTime fecha, string sinopsis, byte[] imagen)
+        {
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "InsertarPelicula";
+            comando.CommandType = CommandType.StoredProcedure;
+
+            comando.Parameters.AddWithValue("@titulo", titulo);
+            comando.Parameters.AddWithValue("@genero", genero);
+            comando.Parameters.AddWithValue("@duracion", duracion);
+            comando.Parameters.AddWithValue("@clasificacion", clasificacion);
+            comando.Parameters.AddWithValue("@fechaEstreno", fecha);
+            comando.Parameters.AddWithValue("@sinopsis", sinopsis);
+            comando.Parameters.AddWithValue("@imagen", imagen ?? (object)DBNull.Value); // Manejo seguro de NULL
+
+            comando.ExecuteNonQuery();
+            comando.Parameters.Clear();
+            conexion.CerrarConexion();
+        }
+
+        // Método para Editar (Con Imagen)
+        public void Editar(int id, string titulo, string genero, int duracion, string clasificacion, string sinopsis, byte[] imagen)
+        {
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "EditarPelicula";
+            comando.CommandType = CommandType.StoredProcedure;
+
+            comando.Parameters.AddWithValue("@idPelicula", id);
+            comando.Parameters.AddWithValue("@titulo", titulo);
+            comando.Parameters.AddWithValue("@genero", genero);
+            comando.Parameters.AddWithValue("@duracion", duracion);
+            comando.Parameters.AddWithValue("@clasificacion", clasificacion);
+            comando.Parameters.AddWithValue("@sinopsis", sinopsis);
+            comando.Parameters.AddWithValue("@imagen", imagen ?? (object)DBNull.Value); // Manejo seguro de NULL en sql
+
+            comando.ExecuteNonQuery();
+            comando.Parameters.Clear();
+            conexion.CerrarConexion();
+        }
+
+        // Método para Eliminar 
+        public void Eliminar(int id)
+        {
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "EliminarPelicula";
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@idPelicula", id);
+            comando.ExecuteNonQuery();
+            comando.Parameters.Clear();
+            conexion.CerrarConexion();
         }
 
     }

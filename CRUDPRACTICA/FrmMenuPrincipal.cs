@@ -13,8 +13,7 @@ namespace CapaPresentacion
 
         private void FrmMenuPrincipal_Load(object sender, EventArgs e)
         {
-            // Al iniciar, cargamos la Cartelera por defecto en el panel
-            AbrirFormulario(new Cartelera());
+
         }
 
         // --- MÉTODO MAESTRO PARA ABRIR EN PANEL (Dashboard) ---
@@ -52,6 +51,22 @@ namespace CapaPresentacion
             AbrirFormulario(new FrmReportes());
         }
 
+        private void btnMantenimiento_Click(object sender, EventArgs e)
+        {
+
+            AbrirFormulario(new FrmMantPeliculas());
+
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(new Acercade());
+
+        }
+        private void btnHistorialCompleto_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(new FrmHistorialVentas());
+        }
+
         private void btnSalir_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -75,5 +90,8 @@ namespace CapaPresentacion
         {
 
         }
+
     }
+       
+
 }

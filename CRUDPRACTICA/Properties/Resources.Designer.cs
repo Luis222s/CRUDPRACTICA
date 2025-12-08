@@ -103,6 +103,16 @@ namespace CapaPresentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _5ff49aff_5f59_4f4f_82db_4ed9161890db1 {
+            get {
+                object obj = ResourceManager.GetObject("5ff49aff-5f59-4f4f-82db-4ed9161890db1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _945f4b41_4fb5_43ca_b716_a06d5cdf1514 {
             get {
                 object obj = ResourceManager.GetObject("945f4b41-4fb5-43ca-b716-a06d5cdf1514", resourceCulture);
@@ -173,6 +183,66 @@ namespace CapaPresentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Captura_de_pantalla_2025_12_07_200517 {
+            get {
+                object obj = ResourceManager.GetObject("Captura de pantalla 2025-12-07 200517", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Captura_de_pantalla_2025_12_07_2005171 {
+            get {
+                object obj = ResourceManager.GetObject("Captura de pantalla 2025-12-07 2005171", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Captura_de_pantalla_2025_12_07_2005172 {
+            get {
+                object obj = ResourceManager.GetObject("Captura de pantalla 2025-12-07 2005172", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Captura_de_pantalla_2025_12_07_230023 {
+            get {
+                object obj = ResourceManager.GetObject("Captura de pantalla 2025-12-07 230023", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Captura_de_pantalla_2025_12_07_230100 {
+            get {
+                object obj = ResourceManager.GetObject("Captura de pantalla 2025-12-07 230100", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Captura_de_pantalla_2025_12_07_230626 {
+            get {
+                object obj = ResourceManager.GetObject("Captura de pantalla 2025-12-07 230626", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap chainsaw_poster {
             get {
                 object obj = ResourceManager.GetObject("chainsaw_poster", resourceCulture);
@@ -186,6 +256,16 @@ namespace CapaPresentacion.Properties {
         internal static System.Drawing.Bitmap ede9afa0_4fbb_4e08_8c3e_fab97924478b {
             get {
                 object obj = ResourceManager.GetObject("ede9afa0-4fbb-4e08-8c3e-fab97924478b", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ede9afa0_4fbb_4e08_8c3e_fab97924478b1 {
+            get {
+                object obj = ResourceManager.GetObject("ede9afa0-4fbb-4e08-8c3e-fab97924478b1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using CapaDatos;
 
 namespace CapaNegocio
@@ -11,33 +7,45 @@ namespace CapaNegocio
     public class CN_Peliculas
     {
         private CD_Peliculas objetoCD = new CD_Peliculas();
+        // MÉTODOS MOSTRAR, OBTENER, BUSCARIMAGEN
+        public DataTable MostrarPeliculas() { return objetoCD.Mostrar(); }
+        public DataTable ObtenerPelicula(int id) { return objetoCD.ObtenerPorId(id); }
+        public DataTable ObtenerListaPeliculas() { return objetoCD.MostrarTodasPeliculas(); }
+        public byte[] BuscarImagenPelicula(int idPelicula) { return objetoCD.ObtenerImagen(idPelicula); }
 
-        public DataTable MostrarPeliculas()
+        // --- MÉTODOS CRUD MODIFICADOS: CON IMAGEN ---
+
+        public void InsertarPelicula(string titulo, string genero, string duracion, string clasificacion, DateTime fecha, string sinopsis, byte[] imagen)
         {
-            DataTable tabla = new DataTable();
-            tabla = objetoCD.Mostrar();
-            return tabla;
+            // Llama a la nueva firma de CD_Peliculas
+            objetoCD.Insertar(
+                titulo,
+                genero,
+                Convert.ToInt32(duracion),
+                clasificacion,
+                fecha,
+                sinopsis,
+                imagen // ARRAY DE BYTES
+            );
         }
-    
-        // Nuevo método para obtener una película por su ID
-        public DataTable ObtenerPelicula(int id)
 
+        public void EditarPelicula(string id, string titulo, string genero, string duracion, string clasificacion, string sinopsis, byte[] imagen)
         {
-            return objetoCD.ObtenerPorId(id);
+            // Llama a la nueva firma de CD_Peliculas
+            objetoCD.Editar(
+                Convert.ToInt32(id),
+                titulo,
+                genero,
+                Convert.ToInt32(duracion),
+                clasificacion,
+                sinopsis,
+                imagen // ARRAY DE BYTES
+            );
         }
 
-        public DataTable ObtenerListaPeliculas()
+        public void EliminarPelicula(string id)
         {
-            return objetoCD.MostrarTodasPeliculas();
-        }
-
-        public byte[] BuscarImagenPelicula(int idPelicula)
-        {
-            CD_Peliculas objCD = new CD_Peliculas();
-            return objCD.ObtenerImagen(idPelicula);
+            objetoCD.Eliminar(Convert.ToInt32(id));
         }
     }
 }
-
-
-

@@ -4,6 +4,7 @@ using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
+using System.IO; 
 
 namespace CapaPresentacion
 {
@@ -31,7 +32,6 @@ namespace CapaPresentacion
         {
             try
             {
-                // Usamos la clase CN_Peliculas que conecta con tu CD_Peliculas
                 CN_Peliculas negocio = new CN_Peliculas();
                 DataTable tabla = negocio.ObtenerPelicula(id);
 
@@ -39,51 +39,53 @@ namespace CapaPresentacion
                 {
                     DataRow fila = tabla.Rows[0];
 
-                    // Asignamos los datos reales de SQL a tus Labels
+                    // 1. CARGA DE TEXTO
                     tituloPelicula = fila["Titulo"].ToString();
-
-                    label5.Text = tituloPelicula; // Título grande
+                    label5.Text = tituloPelicula;
                     label1.Text = "Géneros: " + fila["Genero"].ToString();
                     label2.Text = "Duración: " + fila["Duracion"].ToString() + " min";
+                    label6.Text = "Clasificación: " + fila["Clasificacion"].ToString();
 
-                    // Convertimos la fecha a texto corto (sin hora)
+                    // CAPTURAMOS LA SINOPSIS
+                    string sinopsis = fila["Sinopsis"] != DBNull.Value ? fila["Sinopsis"].ToString() : "Sinopsis no disponible.";
+
+                    // --- USAR RichTextBox (rtxtSinopsis) ---
+                    try
+                    {
+                        // Asumiendo que el RichTextBox se llama rtxtSinopsis
+                        if (this.Controls.Find("rtxtSinopsis", true).FirstOrDefault() is RichTextBox rtb)
+                        {
+                            rtb.Text = sinopsis;
+                            rtb.ReadOnly = true; // El usuario no puede editar
+                                               
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        // Manejo de error si no se encuentra el RichTextBox o si el Label3 fue eliminado
+                        MessageBox.Show("Error al configurar el RichTextBox: " + ex.Message, "Error de Sinopsis");
+                    }
+
+
                     DateTime fecha = Convert.ToDateTime(fila["FechaEstreno"]);
                     label4.Text = "Fecha de estreno: " + fecha.ToShortDateString();
 
-                    label3.Text = fila["Sinopsis"].ToString(); // Descripción larga
-                                                               // --- AGREGA ESTO PARA CAMBIAR LA IMAGEN ---
-                                                               // Asumiendo que tu PictureBox se llama 'pictureBox1'
-
-                    //agregamos la clasificación de la pelicula
-                    label6.Text = "Clasificación: " + fila["Clasificacion"].ToString();
-
-
-
-                    switch (id)
+                    // 2. --- LÓGICA CLAVE: CARGAR LA IMAGEN DESDE LOS BYTES DE SQL ---
+                    if (fila["Imagen"] != DBNull.Value && fila["Imagen"] != null)
                     {
-                        case 1:
-                            // Asegúrate de usar el nombre exacto de la imagen en tus recursos
-                            // Si no te sale 'Properties', intenta solo 'Resources.Nombre'
-                            pictureBox1.Image = Properties.Resources.avengers_poster;
-                            break;
-                        case 2:
-                            pictureBox1.Image = Properties.Resources.padrino_poster;
-                            break;
-                        case 3:
-                            pictureBox1.Image = Properties.Resources.guardians_poster;
-                            break;
-                        case 4:
-                            pictureBox1.Image = Properties.Resources.chainsaw_poster;
-                            break;
-                        default:
-                            // Imagen por defecto si agregas una peli 5 y no tienes foto
-                            // pictureBox1.Image = Properties.Resources.logo_cine; 
-                            break;
+                        byte[] imgBytes = (byte[])fila["Imagen"];
+                        using (MemoryStream ms = new MemoryStream(imgBytes))
+                        {
+                            pictureBox1.Image = Image.FromStream(ms);
+                            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+                        }
                     }
-
+                    else
+                    {
+                        pictureBox1.Image = null;
+                        pictureBox1.BackColor = Color.DimGray;
+                    }
                 }
-
-
             }
             catch (Exception ex)
             {
@@ -91,7 +93,17 @@ namespace CapaPresentacion
             }
         }
 
-        // --- TU DISEÑO DE BORDES REDONDOS (Sin cambios) ---
+        // --- BOTONES ---
+
+        private void Btn_Boletos1_Click(object sender, EventArgs e) // Botón Comprar
+        {
+            // Pasa la imagen actual del PictureBox (la que se cargó de la BD)
+            VentaDeBoletos frm = new VentaDeBoletos(idPeliculaActual.ToString(), tituloPelicula, pictureBox1.Image);
+            frm.Show();
+            this.Close();
+        }
+
+        // --- TU DISEÑO DE BORDES REDONDOS (Se mantiene sin cambios) ---
         private void ConfigurarDiseñoRedondo()
         {
             try
@@ -114,34 +126,24 @@ namespace CapaPresentacion
             btn.Region = new Region(path);
         }
 
-        // --- BOTONES ---
+        // --- EVENTOS DE DISEÑO (Se mantienen sin cambios) ---
+        private void Pelicula1_Load(object sender, EventArgs e) { }
+        private void label3_Click(object sender, EventArgs e) { }
+        private void pictureBox1_Click(object sender, EventArgs e) { }
 
-        private void button1_Click(object sender, EventArgs e) // Botón Volver/Cancelar
+        private void Btn_Cancelar1_Click_1(object sender, EventArgs e)
         {
             Cartelera frm = new Cartelera();
             frm.Show();
             this.Close();
         }
 
-        private void Btn_Boletos1_Click(object sender, EventArgs e) // Botón Comprar
-        {
-            // Pasa la imagen actual del PictureBox como tercer argumento
-            VentaDeBoletos frm = new VentaDeBoletos(idPeliculaActual.ToString(), tituloPelicula, pictureBox1.Image);
-            frm.Show();
-            this.Close();
-        }
-
-        private void Pelicula1_Load(object sender, EventArgs e)
-        {
-            // Ya cargamos en el constructor, no hace falta nada aquí
-        }
-
-        private void label3_Click(object sender, EventArgs e)
+        private void pictureBox2_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void rtxtSinopsis_TextChanged(object sender, EventArgs e)
         {
 
         }

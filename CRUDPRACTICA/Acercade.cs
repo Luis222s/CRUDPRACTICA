@@ -18,11 +18,13 @@ namespace CapaPresentacion
             InitializeComponent();
         }
 
+        //cerrar e ir a menu principal
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            Cartelera go = new Cartelera();
-            go.Show();
-            this.Close();
+            this.Hide();
+            FrmMenuPrincipal frmMenuPrincipal = new FrmMenuPrincipal();
+            frmMenuPrincipal.Show();
+
         }
     }
 }

@@ -1,119 +1,150 @@
 using CapaDatos;
+using CapaNegocio;
 using CapaPresentacion;
 using System;
+using System.Data;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Runtime.InteropServices;
+using System.IO;
 using System.Windows.Forms;
-using CapaNegocio;
-using System.Data; // Necesario para DataTable
+using System.Runtime.InteropServices; // <--- AGREGADO: Necesario para DllImport (movimiento de ventana)
 
 namespace CapaPresentacion
 {
     public partial class Cartelera : Form
     {
         public Cartelera FormPrincipal { get; set; }
+        private CN_Peliculas negocioPeliculas = new CN_Peliculas();
 
         public Cartelera()
         {
             InitializeComponent();
-            ConfigurarDiseñoBotones();
+            this.Text = "CineMax - Cartelera";
         }
 
         private void Cartelera_Load(object sender, EventArgs e)
         {
-            // Al abrir, cargamos los nombres reales de la BD
-            CargarPeliculasEnBotones();
+            CargarPeliculasDinamicas();
         }
 
-        // --- DISEÑO VISUAL ---
-        private void ConfigurarDiseñoBotones()
+        // --- CARGA DE DATOS DINÁMICA ---
+        private void CargarPeliculasDinamicas()
         {
+            // Limpiamos el FlowLayoutPanel antes de cargar
+            // Asegúrate de que este control se llama flowLayoutPanelCartelera en tu diseñador
+            flowLayoutPanelCartelera.Controls.Clear();
+
             try
             {
-                int radius = 20;
-                AplicarBordeRedondo(Btn_Peli1, radius);
-                AplicarBordeRedondo(Btn_Peli2, radius);
-                AplicarBordeRedondo(Btn_Peli3, radius);
-                AplicarBordeRedondo(Btn_Peli4, radius);
-                AplicarBordeRedondo(button1, radius);
-            }
-            catch { }
-        }
+                // Traemos todas las películas
+                DataTable tabla = negocioPeliculas.MostrarPeliculas();
 
-        private void AplicarBordeRedondo(Button btn, int radius)
-        {
-            if (btn == null) return;
-            GraphicsPath path = new GraphicsPath();
-            path.AddArc(0, 0, radius, radius, 180, 90);
-            path.AddArc(btn.Width - radius, 0, radius, radius, 270, 90);
-            path.AddArc(btn.Width - radius, btn.Height - radius, radius, radius, 0, 90);
-            path.AddArc(0, btn.Height - radius, radius, radius, 90, 90);
-            path.CloseFigure();
-            btn.Region = new Region(path);
-        }
-
-        // --- CARGA DE DATOS (BACKEND -> FRONTEND) ---
-        private void CargarPeliculasEnBotones()
-        {
-            CN_Peliculas negocio = new CN_Peliculas();
-            try
-            {
-                // 1. Traemos todas las películas de la Base de Datos
-                DataTable tabla = negocio.MostrarPeliculas();
-
-                // 2. Asignamos nombre e ID a los botones
-
-                // BOTÓN 1
-                if (tabla.Rows.Count > 0)
+                foreach (DataRow fila in tabla.Rows)
                 {
-                    ConfigurarBoton(Btn_Peli1, tabla.Rows[0]);
+                    // Creamos un contenedor (Panel) para cada película
+                    Panel peliPanel = CrearPanelPelicula(fila);
+                    flowLayoutPanelCartelera.Controls.Add(peliPanel);
                 }
-                else Btn_Peli1.Visible = false;
-
-                // BOTÓN 2
-                if (tabla.Rows.Count > 1)
-                {
-                    ConfigurarBoton(Btn_Peli2, tabla.Rows[1]);
-                }
-                else Btn_Peli2.Visible = false;
-
-                // BOTÓN 3
-                if (tabla.Rows.Count > 2)
-                {
-                    ConfigurarBoton(Btn_Peli3, tabla.Rows[2]);
-                }
-                else Btn_Peli3.Visible = false;
-
-                // BOTÓN 4
-                if (tabla.Rows.Count > 3)
-                {
-                    ConfigurarBoton(Btn_Peli4, tabla.Rows[3]);
-                }
-                else Btn_Peli4.Visible = false;
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al cargar películas: " + ex.Message);
+                MessageBox.Show("Error al cargar la cartelera: " + ex.Message);
             }
         }
 
-        // Método auxiliar para configurar texto y tag
-        private void ConfigurarBoton(Button btn, DataRow fila)
+        // Crea y configura el panel que contiene la imagen y el botón
+        private Panel CrearPanelPelicula(DataRow fila)
         {
-            btn.Visible = true;
+            int idPelicula = Convert.ToInt32(fila["IdPelicula"]);
+            string titulo = fila["Titulo"].ToString();
+            byte[] imagenBytes = fila["Imagen"] != DBNull.Value ? (byte[])fila["Imagen"] : null;
 
-            // 1. Guardamos el ID oculto (Esto es lo vital para la venta)
-            btn.Tag = fila["IdPelicula"].ToString();
+            Panel panel = new Panel
+            {
+                Width = 200,
+                Height = 350,
+                Margin = new Padding(15, 10, 15, 10),
+                BackColor = Color.FromArgb(40, 40, 40) // Fondo oscuro
+            };
 
-            // 2. Mantenemos el texto "Ver detalles..." (O el que tengas en el diseño)
-            // No hacemos btn.Text = fila["Titulo"].ToString(); para no afear el botón negro.
+            // 1. PictureBox para el Poster
+            PictureBox pbPoster = new PictureBox
+            {
+                Width = 180,
+                Height = 250,
+                Location = new Point(10, 10),
+                SizeMode = PictureBoxSizeMode.Zoom,
+                Tag = idPelicula, // Guardamos el ID
+            };
 
-            // 3. OPCIONAL: Si tienes labels encima de los botones (ej: lblTitulo1), 
-            // podrías cambiarles el texto aquí si me dices cómo se llaman.
+            // Cargar la imagen
+            if (imagenBytes != null && imagenBytes.Length > 0)
+            {
+                using (MemoryStream ms = new MemoryStream(imagenBytes))
+                {
+                    pbPoster.Image = Image.FromStream(ms);
+                }
+            }
+            else
+            {
+                // Solución al error CS0117: Usamos un color si no hay imagen (o si Properties.Resources.placeholder no existe)
+                pbPoster.BackColor = Color.DimGray;
+            }
+
+
+            // 2. Label para el Título
+            Label lblTitulo = new Label
+            {
+                Text = titulo,
+                Width = 180,
+                Height = 40,
+                Location = new Point(10, 270),
+                ForeColor = Color.White,
+                Font = new Font("Segoe UI", 9, FontStyle.Bold),
+                TextAlign = ContentAlignment.MiddleCenter,
+            };
+
+            // 3. Botón "Ver detalles..." (El botón de navegación)
+            Button btnDetalles = new Button
+            {
+                Text = "Ver detalles...",
+                Width = 120,
+                Height = 30,
+                Location = new Point(40, 315),
+                BackColor = Color.Red,
+                ForeColor = Color.White,
+                FlatStyle = FlatStyle.Flat,
+                Tag = idPelicula.ToString(), // El ID es el Tag
+            };
+
+            btnDetalles.FlatAppearance.BorderSize = 0;
+            btnDetalles.Click += BtnDetalles_Click;
+
+            panel.Controls.Add(pbPoster);
+            panel.Controls.Add(lblTitulo);
+            panel.Controls.Add(btnDetalles);
+
+            return panel;
         }
 
-        // --- MOVIMIENTO DE VENTANA ---
+        // --- NAVEGACIÓN DINÁMICA (MÉTODO ÚNICO) ---
+        private void BtnDetalles_Click(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+
+            if (btn != null && btn.Tag != null)
+            {
+                string idPelicula = btn.Tag.ToString();
+
+                // Abrimos el formulario de detalle de la película (FrmPelicula)
+                FrmPelicula detalle = new FrmPelicula(idPelicula);
+                detalle.Show();
+                this.Hide(); // Ocultamos la cartelera
+            }
+        }
+
+
+        // --- EVENTOS DE VENTANA Y MOVIMIENTO ---
+        // Estos requieren el 'using System.Runtime.InteropServices;'
         [DllImport("user32.dll", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.dll", EntryPoint = "SendMessage")]
@@ -123,37 +154,14 @@ namespace CapaPresentacion
         {
             ReleaseCapture(); SendMessage(this.Handle, 0x112, 0x0f012, 0);
         }
-
-        private void Btn_Cerrar_Click(object sender, EventArgs e) => Application.Exit();
+        //se cierra cartelera
+        private void Btn_Cerrar_Click(object sender, EventArgs e) => this.Close();
         private void Btn_Minimizar_Click(object sender, EventArgs e) => this.WindowState = FormWindowState.Minimized;
 
-        // --- NAVEGACIÓN DINÁMICA (EL CAMBIO IMPORTANTE) ---
-
-        // Antes abrías formularios fijos. Ahora llamamos a una función inteligente "IrAComprar"
-        private void Btn_Peli1_Click(object sender, EventArgs e) => IrAComprar(Btn_Peli1);
-        private void Btn_Peli2_Click(object sender, EventArgs e) => IrAComprar(Btn_Peli2);
-        private void Btn_Peli3_Click(object sender, EventArgs e) => IrAComprar(Btn_Peli3);
-        private void Btn_Peli4_Click(object sender, EventArgs e) => IrAComprar(Btn_Peli4);
-
-        private void IrAComprar(Button btn)
+        // Mantenemos este evento, aunque no parece hacer nada funcional
+        private void flowLayoutPanelCartelera_Paint(object sender, PaintEventArgs e)
         {
-            if (btn.Tag != null)
-            {
-                string idPelicula = btn.Tag.ToString();
 
-
-                // AQUÍ VA EL SIGUIENTE PASO: Abrir frmComprarTicket(idPelicula)
-
-                FrmPelicula detalle = new FrmPelicula(idPelicula);
-                detalle.Show();
-            }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Acercade go = new Acercade();
-            go.Show();
-            this.Hide();
         }
     }
 }
