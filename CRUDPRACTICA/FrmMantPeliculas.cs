@@ -243,7 +243,7 @@ namespace CapaPresentacion
 
         private void btnQuitarImagen_Click(object sender, EventArgs e)
         {
-            pbPoster.Image = null; // Quitar la imagen
+            pbPoster.Image = null; // Quitar la imagen9
         }
 
         // --- EVENTOS DEL DISEÑADOR (SIN LÓGICA) ---

@@ -44,6 +44,7 @@
             // 
             // pictureBox1
             // 
+            pictureBox1.BackColor = Color.FromArgb(224, 224, 224);
             pictureBox1.BorderStyle = BorderStyle.FixedSingle;
             pictureBox1.Location = new Point(49, 282);
             pictureBox1.Margin = new Padding(3, 4, 3, 4);
@@ -57,7 +58,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.BackColor = Color.LightSlateGray;
+            label1.BackColor = Color.Azure;
             label1.BorderStyle = BorderStyle.FixedSingle;
             label1.Font = new Font("Century", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.ActiveCaptionText;
@@ -70,7 +71,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.BackColor = Color.LightSlateGray;
+            label2.BackColor = Color.Azure;
             label2.BorderStyle = BorderStyle.FixedSingle;
             label2.Font = new Font("Century", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = SystemColors.ActiveCaptionText;
@@ -121,7 +122,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.BackColor = Color.LightSlateGray;
+            label4.BackColor = Color.Azure;
             label4.BorderStyle = BorderStyle.FixedSingle;
             label4.Font = new Font("Century", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.ForeColor = SystemColors.ActiveCaptionText;
@@ -134,7 +135,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.BackColor = Color.LightSlateGray;
+            label5.BackColor = Color.Azure;
             label5.BorderStyle = BorderStyle.FixedSingle;
             label5.Font = new Font("Century", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label5.ForeColor = SystemColors.ActiveCaptionText;
@@ -148,7 +149,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.BackColor = Color.LightSlateGray;
+            label6.BackColor = Color.Azure;
             label6.BorderStyle = BorderStyle.FixedSingle;
             label6.Font = new Font("Century", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label6.Location = new Point(685, 142);
@@ -170,7 +171,7 @@
             // 
             // rtxtSinopsis
             // 
-            rtxtSinopsis.BackColor = Color.LightSlateGray;
+            rtxtSinopsis.BackColor = Color.Azure;
             rtxtSinopsis.BorderStyle = BorderStyle.FixedSingle;
             rtxtSinopsis.Font = new Font("Century", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             rtxtSinopsis.ForeColor = Color.Black;
@@ -185,7 +186,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.White;
+            BackColor = Color.FromArgb(192, 192, 255);
             BackgroundImage = Properties.Resources.Captura_de_pantalla_2025_12_07_230626;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1032, 809);
