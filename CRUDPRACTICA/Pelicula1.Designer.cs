@@ -37,6 +37,7 @@
             Btn_Boletos1 = new Button();
             label4 = new Label();
             label5 = new Label();
+            rtxtSinopsis = new RichTextBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -80,7 +81,7 @@
             label3.BackColor = Color.Transparent;
             label3.Font = new Font("Segoe Fluent Icons", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = SystemColors.ButtonFace;
-            label3.Location = new Point(191, 327);
+            label3.Location = new Point(191, 321);
             label3.Name = "label3";
             label3.Size = new Size(691, 48);
             label3.TabIndex = 3;
@@ -146,6 +147,15 @@
             label5.TabIndex = 7;
             label5.Text = "Us";
             // 
+            // rtxtSinopsis
+            // 
+            rtxtSinopsis.BackColor = SystemColors.Window;
+            rtxtSinopsis.Location = new Point(191, 356);
+            rtxtSinopsis.Name = "rtxtSinopsis";
+            rtxtSinopsis.Size = new Size(676, 76);
+            rtxtSinopsis.TabIndex = 8;
+            rtxtSinopsis.Text = "";
+            // 
             // Pelicula1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -154,6 +164,7 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(903, 567);
+            Controls.Add(rtxtSinopsis);
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(Btn_Boletos1);
@@ -182,5 +193,6 @@
         private Button Btn_Boletos1;
         private Label label4;
         private Label label5;
+        private RichTextBox rtxtSinopsis;
     }
 }

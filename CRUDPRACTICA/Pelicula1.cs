@@ -1,4 +1,5 @@
-﻿using CapaNegocio;
+﻿using CapaDatos;
+using CapaNegocio;
 using CRUDPRACTICA;
 using System;
 using System.Collections.Generic;
@@ -19,9 +20,15 @@ namespace CapaPresentacion
         public Cartelera FormPrincipal { get; set; }
 
 
-        public Pelicula1()
+        public Pelicula1(string idRecibido)
         {
             InitializeComponent();
+
+            if (int.TryParse(idRecibido, out int id))
+            {
+                idPeliculaActual = id;
+                CargarDatosDesdeSQL(id);
+            }
 
             int radius = 20;
 
@@ -48,37 +55,82 @@ namespace CapaPresentacion
         {
             Cartelera frm = new Cartelera();
             frm.Show();
-            this.Close();
         }
 
         private void Btn_Boletos1_Click(object sender, EventArgs e)
         {
-            VentaDeBoletos frm = new VentaDeBoletos();
-            frm.Show();
+            /*VentaDeBoletos frm = new VentaDeBoletos(idPeliculaActual.ToString(), tituloPelicula, pictureBox1.Image);
+            frm.Show();*/
             this.Close();
         }
-        private void CargarDatosPelicula()
+
+        private int idPeliculaActual;
+        private string tituloPelicula;
+
+        private void CargarDatosDesdeSQL(int id)
         {
-
-            Pelicula Us = new Pelicula
+            try
             {
-                Titulo = "Us",
-                Generos = "Géneros: Cine de terror, Thriller, Comedia cinematográfica, Drama",
-                Duracion = "2 Horas 1 Minutos",
-                FechaEstreno = "22 de marzo del 2019",
-                Descripcion = "Adelaide y su esposo viajan a la casa en la que ella creció junto a la playa. Tiene un presentimiento \r\nsiniestro que precede a un encuentro espeluznante: cuatro enmascarados se presentan ante su casa. \r\nLo aterrador viene cuando muestran sus rostros."
-            };
+                CN_Pelicula negocio = new CN_Pelicula();
+                DataTable tabla = negocio.ObtenerPelicula(id);
 
-            label5.Text = Us.Titulo;
-            label1.Text = "Géneros: " + Us.Generos;
-            label2.Text = "Duración: " + Us.Duracion;
-            label4.Text = "Fecha de estreno: " + Us.FechaEstreno;
-            label3.Text = Us.Descripcion;
+                if (tabla.Rows.Count > 0)
+                {
+                    DataRow fila = tabla.Rows[0];
+
+                    // 1. CARGA DE TEXTO
+                    tituloPelicula = fila["Titulo"].ToString();
+                    label5.Text = tituloPelicula;
+                    label1.Text = "Géneros: " + fila["Genero"].ToString();
+                    label2.Text = "Duración: " + fila["Duracion"].ToString() + " min";
+                    label3.Text = "Clasificación: " + fila["Clasificacion"].ToString();
+
+                    // CAPTURAMOS LA SINOPSIS
+                    string sinopsis = fila["Sinopsis"] != DBNull.Value ? fila["Sinopsis"].ToString() : "Sinopsis no disponible.";
+                    try
+                    {
+                        if (this.Controls.Find("rtxtSinopsis", true).FirstOrDefault() is RichTextBox rtb)
+                        {
+                            rtb.Text = sinopsis;
+                            rtb.ReadOnly = true; 
+
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error al configurar el RichTextBox: " + ex.Message, "Error de Sinopsis");
+                    }
+
+
+                    DateTime fecha = Convert.ToDateTime(fila["FechaEstreno"]);
+                    label4.Text = "Fecha de estreno: " + fecha.ToShortDateString();
+
+                    // 2. --- LÓGICA CLAVE: CARGAR LA IMAGEN DESDE LOS BYTES DE SQL ---
+                    if (fila["Imagen"] != DBNull.Value && fila["Imagen"] != null)
+                    {
+                        byte[] imgBytes = (byte[])fila["Imagen"];
+                        using (MemoryStream ms = new MemoryStream(imgBytes))
+                        {
+                            pictureBox1.Image = Image.FromStream(ms);
+                            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+                        }
+                    }
+                    else
+                    {
+                        pictureBox1.Image = null;
+                        pictureBox1.BackColor = Color.DimGray;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar datos: " + ex.Message);
+            }
         }
 
         private void Pelicula1_Load(object sender, EventArgs e)
         {
-            CargarDatosPelicula();
+
         }
     }
 }
