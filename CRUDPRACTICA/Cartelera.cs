@@ -168,7 +168,7 @@ namespace CRUDPRACTICA
                 string idPelicula = btn.Tag.ToString();
 
                 // Abrimos el formulario de detalle de la película (FrmPelicula)
-                FrmPelicula detalle = new FrmPelicula(idPelicula);
+                Pelicula1 detalle = new Pelicula1(idPelicula);
                 detalle.Show();
                 this.Hide(); // Ocultamos la cartelera
             }
