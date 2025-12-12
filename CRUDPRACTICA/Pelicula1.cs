@@ -57,11 +57,23 @@ namespace CapaPresentacion
             frm.Show();
         }
 
+        private void AbrirFormHijo(object FormHijo)
+        {
+            Peliculas peli = new Peliculas();
+
+            if (peli.Contenedor.Controls.Count > 0)
+                peli.Contenedor.Controls.RemoveAt(0);
+            Form fos = FormHijo as Form;
+            fos.TopLevel = false;
+            fos.Dock = DockStyle.Fill;
+            peli.Controls.Add(fos);
+            peli.Tag = fos;
+            fos.Show();
+        }
+
         private void Btn_Boletos1_Click(object sender, EventArgs e)
         {
-            /*VentaDeBoletos frm = new VentaDeBoletos(idPeliculaActual.ToString(), tituloPelicula, pictureBox1.Image);
-            frm.Show();*/
-            this.Close();
+            /*AbrirFormHijo(new VentaDeBoletos(idPeliculaActual.ToString(), tituloPelicula, pictureBox1.Image));*/
         }
 
         private int idPeliculaActual;

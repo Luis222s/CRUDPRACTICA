@@ -59,9 +59,9 @@
             label1.ForeColor = SystemColors.ButtonFace;
             label1.Location = new Point(191, 191);
             label1.Name = "label1";
-            label1.Size = new Size(527, 21);
+            label1.Size = new Size(259, 21);
             label1.TabIndex = 1;
-            label1.Text = "Géneros: Cine de terror, Thriller, Comedia cinematográfica, Drama";
+            label1.Text = "Géneros: Cine de terror, Thriller";
             // 
             // label2
             // 
@@ -83,9 +83,9 @@
             label3.ForeColor = SystemColors.ButtonFace;
             label3.Location = new Point(191, 321);
             label3.Name = "label3";
-            label3.Size = new Size(691, 48);
+            label3.Size = new Size(288, 32);
             label3.TabIndex = 3;
-            label3.Text = resources.GetString("label3.Text");
+            label3.Text = "Adelaide y su esposo viajan a la casa en \r\nsiniestro que precede a un encuentro\r\n";
             // 
             // Btn_Cancelar1
             // 
@@ -97,7 +97,7 @@
             Btn_Cancelar1.FlatStyle = FlatStyle.Flat;
             Btn_Cancelar1.Font = new Font("Segoe Fluent Icons", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Btn_Cancelar1.ForeColor = Color.White;
-            Btn_Cancelar1.Location = new Point(131, 487);
+            Btn_Cancelar1.Location = new Point(125, 453);
             Btn_Cancelar1.Name = "Btn_Cancelar1";
             Btn_Cancelar1.Size = new Size(98, 56);
             Btn_Cancelar1.TabIndex = 4;
@@ -115,7 +115,7 @@
             Btn_Boletos1.FlatStyle = FlatStyle.Flat;
             Btn_Boletos1.Font = new Font("Segoe Fluent Icons", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Btn_Boletos1.ForeColor = SystemColors.ButtonHighlight;
-            Btn_Boletos1.Location = new Point(690, 487);
+            Btn_Boletos1.Location = new Point(461, 453);
             Btn_Boletos1.Name = "Btn_Boletos1";
             Btn_Boletos1.Size = new Size(98, 56);
             Btn_Boletos1.TabIndex = 5;
@@ -152,7 +152,7 @@
             rtxtSinopsis.BackColor = SystemColors.Window;
             rtxtSinopsis.Location = new Point(191, 356);
             rtxtSinopsis.Name = "rtxtSinopsis";
-            rtxtSinopsis.Size = new Size(676, 76);
+            rtxtSinopsis.Size = new Size(468, 76);
             rtxtSinopsis.TabIndex = 8;
             rtxtSinopsis.Text = "";
             // 
@@ -163,7 +163,7 @@
             BackColor = Color.White;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(903, 567);
+            ClientSize = new Size(671, 521);
             Controls.Add(rtxtSinopsis);
             Controls.Add(label5);
             Controls.Add(label4);

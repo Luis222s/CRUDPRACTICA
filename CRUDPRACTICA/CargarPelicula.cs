@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace CapaPresentacion
 {
@@ -144,10 +145,15 @@ namespace CapaPresentacion
         {
             try
             {
-                // Validaciones (Solo Título es obligatorio)
-                if (string.IsNullOrWhiteSpace(txtTitulo.Text))
+                if (string.IsNullOrWhiteSpace(txtTitulo.Text) ||
+                string.IsNullOrWhiteSpace(txtGenero.Text) ||
+                string.IsNullOrWhiteSpace(txtClasificacion.Text) ||
+                string.IsNullOrWhiteSpace(txtDuracion.Text) ||
+                string.IsNullOrWhiteSpace(txtRatings.Text) ||
+                string.IsNullOrWhiteSpace(txtSinopsis.Text) ||
+                pbPoster.Image == null)
                 {
-                    MessageBox.Show("El título es obligatorio.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Debes llenar todos los campos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 

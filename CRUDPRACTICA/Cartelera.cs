@@ -61,6 +61,20 @@ namespace CRUDPRACTICA
         {
 
         }
+        private void AbrirFormHijo(object FormHijo)
+        {
+            Peliculas peli = new Peliculas();
+
+            if (peli.Contenedor.Controls.Count > 0)
+                peli.Contenedor.Controls.RemoveAt(0);
+            Form fos = FormHijo as Form;
+            fos.TopLevel = false;
+            fos.Dock = DockStyle.Fill;
+            peli.Controls.Add(fos);
+            peli.Tag = fos;
+            fos.Show();
+
+        }
         private void CargarPeliculasDinamicas()
         {
             // Limpiamos el FlowLayoutPanel antes de cargar
@@ -161,7 +175,14 @@ namespace CRUDPRACTICA
 
         private void BtnDetalles_Click(object sender, EventArgs e)
         {
-            
+            Button btn = sender as Button;
+
+            if (btn != null && btn.Tag != null)
+            {
+                string idPelicula = btn.Tag.ToString();
+
+                AbrirFormHijo(new Pelicula1(idPelicula));
+            }
         }
 
 

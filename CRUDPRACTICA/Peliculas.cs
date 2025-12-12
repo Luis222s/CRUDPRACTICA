@@ -20,6 +20,11 @@ namespace CapaPresentacion
             AbrirFormHijo(new Home());
         }
 
+        public Panel Contenedor
+        {
+            get { return panel1; }
+        }
+
         private void Btn_Minimizar_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
