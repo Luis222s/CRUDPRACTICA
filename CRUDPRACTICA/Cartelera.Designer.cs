@@ -43,12 +43,15 @@
             panel1 = new Panel();
             button1 = new Button();
             flowLayoutPanelCartelera = new FlowLayoutPanel();
+            label2 = new Label();
+            pictureBox5 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Btn_Minimizar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Btn_Cerrar).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -57,7 +60,7 @@
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Segoe Fluent Icons", 30F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.ButtonFace;
-            label1.Location = new Point(312, 62);
+            label1.Location = new Point(173, 62);
             label1.Name = "label1";
             label1.Size = new Size(304, 40);
             label1.TabIndex = 0;
@@ -210,7 +213,7 @@
             panel1.BackColor = Color.Transparent;
             panel1.Location = new Point(162, -2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(630, 27);
+            panel1.Size = new Size(315, 27);
             panel1.TabIndex = 15;
             panel1.MouseDown += panel1_MouseDown;
             // 
@@ -236,8 +239,33 @@
             flowLayoutPanelCartelera.BackColor = Color.Transparent;
             flowLayoutPanelCartelera.Location = new Point(12, 131);
             flowLayoutPanelCartelera.Name = "flowLayoutPanelCartelera";
-            flowLayoutPanelCartelera.Size = new Size(877, 422);
+            flowLayoutPanelCartelera.Size = new Size(642, 390);
             flowLayoutPanelCartelera.TabIndex = 17;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.BackColor = Color.Transparent;
+            label2.Font = new Font("Segoe Fluent Icons", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.White;
+            label2.ImageAlign = ContentAlignment.TopCenter;
+            label2.Location = new Point(94, 9);
+            label2.Name = "label2";
+            label2.Size = new Size(122, 32);
+            label2.TabIndex = 18;
+            label2.Text = "Cartelera";
+            label2.TextAlign = ContentAlignment.TopCenter;
+            // 
+            // pictureBox5
+            // 
+            pictureBox5.BackColor = Color.Transparent;
+            pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
+            pictureBox5.Location = new Point(14, 9);
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.Size = new Size(64, 32);
+            pictureBox5.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox5.TabIndex = 19;
+            pictureBox5.TabStop = false;
             // 
             // Cartelera
             // 
@@ -245,7 +273,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(901, 565);
+            ClientSize = new Size(671, 521);
+            Controls.Add(label2);
+            Controls.Add(pictureBox5);
             Controls.Add(flowLayoutPanelCartelera);
             Controls.Add(button1);
             Controls.Add(panel1);
@@ -271,6 +301,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)Btn_Minimizar).EndInit();
             ((System.ComponentModel.ISupportInitialize)Btn_Cerrar).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -291,5 +322,7 @@
         private Panel panel1;
         private Button button1;
         private FlowLayoutPanel flowLayoutPanelCartelera;
+        private Label label2;
+        private PictureBox pictureBox5;
     }
 }

@@ -42,7 +42,7 @@
             label1.Font = new Font("Segoe Fluent Icons", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.White;
             label1.ImageAlign = ContentAlignment.TopCenter;
-            label1.Location = new Point(103, 28);
+            label1.Location = new Point(102, 9);
             label1.Name = "label1";
             label1.Size = new Size(77, 32);
             label1.TabIndex = 3;
@@ -51,9 +51,9 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.BackColor = Color.Black;
+            pictureBox1.BackColor = Color.Transparent;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(23, 28);
+            pictureBox1.Location = new Point(22, 9);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(64, 32);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;

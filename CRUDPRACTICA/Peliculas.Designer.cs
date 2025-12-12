@@ -84,7 +84,7 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.BackColor = Color.Black;
+            pictureBox1.BackColor = Color.Transparent;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(12, 142);
             pictureBox1.Name = "pictureBox1";
@@ -95,7 +95,7 @@
             // 
             // pictureBox2
             // 
-            pictureBox2.BackColor = Color.Black;
+            pictureBox2.BackColor = Color.Transparent;
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
             pictureBox2.Location = new Point(12, 210);
             pictureBox2.Name = "pictureBox2";
@@ -147,7 +147,7 @@
             // 
             // pictureBox3
             // 
-            pictureBox3.BackColor = Color.Black;
+            pictureBox3.BackColor = Color.Transparent;
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
             pictureBox3.Location = new Point(12, 274);
             pictureBox3.Name = "pictureBox3";
@@ -172,7 +172,7 @@
             // 
             // pictureBox4
             // 
-            pictureBox4.BackColor = Color.Black;
+            pictureBox4.BackColor = Color.Transparent;
             pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
             pictureBox4.Location = new Point(12, 339);
             pictureBox4.Name = "pictureBox4";
@@ -197,7 +197,7 @@
             // 
             // pictureBox5
             // 
-            pictureBox5.BackColor = Color.Black;
+            pictureBox5.BackColor = Color.Transparent;
             pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
             pictureBox5.Location = new Point(12, 406);
             pictureBox5.Name = "pictureBox5";
@@ -222,7 +222,7 @@
             // 
             // pictureBox6
             // 
-            pictureBox6.BackColor = Color.Black;
+            pictureBox6.BackColor = Color.Transparent;
             pictureBox6.Image = (Image)resources.GetObject("pictureBox6.Image");
             pictureBox6.Location = new Point(12, 521);
             pictureBox6.Name = "pictureBox6";
