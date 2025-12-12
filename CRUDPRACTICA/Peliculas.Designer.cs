@@ -165,9 +165,9 @@
             label3.ImageAlign = ContentAlignment.TopCenter;
             label3.Location = new Point(92, 274);
             label3.Name = "label3";
-            label3.Size = new Size(110, 32);
+            label3.Size = new Size(121, 32);
             label3.TabIndex = 17;
-            label3.Text = "Editar P";
+            label3.Text = "Peliculas";
             label3.TextAlign = ContentAlignment.TopCenter;
             // 
             // pictureBox4
@@ -210,12 +210,12 @@
             // 
             label5.AutoSize = true;
             label5.BackColor = Color.Transparent;
-            label5.Font = new Font("Segoe Fluent Icons", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.Font = new Font("Segoe Fluent Icons", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label5.ForeColor = Color.White;
             label5.ImageAlign = ContentAlignment.MiddleLeft;
             label5.Location = new Point(92, 406);
             label5.Name = "label5";
-            label5.Size = new Size(137, 32);
+            label5.Size = new Size(124, 29);
             label5.TabIndex = 21;
             label5.Text = "Acerca De";
             label5.TextAlign = ContentAlignment.MiddleLeft;

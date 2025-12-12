@@ -82,7 +82,6 @@
             // 
             // pictureBox2
             // 
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
             pictureBox2.Location = new Point(241, 12);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(185, 241);
