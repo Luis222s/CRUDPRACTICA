@@ -99,7 +99,7 @@ namespace CapaPresentacion
                                         MessageBox.Show("Sesión iniciada de manera exitosa");
 
                                         // Mostrar el formulario principal
-                                        Cartelera formPrincipal = new Cartelera();
+                                        Peliculas formPrincipal = new Peliculas();
                                         formPrincipal.Show();
 
                                         // Ocultar el formulario de login

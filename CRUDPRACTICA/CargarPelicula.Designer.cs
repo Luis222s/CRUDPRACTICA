@@ -51,8 +51,8 @@
             btnEditar = new Button();
             btnGuardar = new Button();
             btnEliminar = new Button();
-            txtClasificacion = new Label();
-            textBox1 = new TextBox();
+            txtRatings = new Label();
+            txtClasificacion = new TextBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvPeliculas).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbPoster).BeginInit();
@@ -136,9 +136,9 @@
             // 
             // txtGenero
             // 
-            txtGenero.Location = new Point(92, 180);
+            txtGenero.Location = new Point(102, 180);
             txtGenero.Name = "txtGenero";
-            txtGenero.Size = new Size(146, 23);
+            txtGenero.Size = new Size(136, 23);
             txtGenero.TabIndex = 31;
             // 
             // label1
@@ -155,9 +155,9 @@
             // 
             // txtTitulo
             // 
-            txtTitulo.Location = new Point(92, 129);
+            txtTitulo.Location = new Point(85, 129);
             txtTitulo.Name = "txtTitulo";
-            txtTitulo.Size = new Size(146, 23);
+            txtTitulo.Size = new Size(153, 23);
             txtTitulo.TabIndex = 29;
             // 
             // label6
@@ -192,6 +192,7 @@
             pbPoster.Location = new Point(292, 52);
             pbPoster.Name = "pbPoster";
             pbPoster.Size = new Size(145, 175);
+            pbPoster.SizeMode = PictureBoxSizeMode.StretchImage;
             pbPoster.TabIndex = 41;
             pbPoster.TabStop = false;
             // 
@@ -200,7 +201,7 @@
             btnNuevo.BackColor = Color.YellowGreen;
             btnNuevo.FlatAppearance.BorderSize = 0;
             btnNuevo.FlatStyle = FlatStyle.Flat;
-            btnNuevo.Font = new Font("Segoe Fluent Icons", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnNuevo.Font = new Font("Segoe Fluent Icons", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnNuevo.ForeColor = Color.White;
             btnNuevo.Location = new Point(11, 63);
             btnNuevo.Name = "btnNuevo";
@@ -312,24 +313,24 @@
             btnEliminar.UseVisualStyleBackColor = false;
             btnEliminar.Click += btnEliminar_Click;
             // 
+            // txtRatings
+            // 
+            txtRatings.AutoSize = true;
+            txtRatings.BackColor = Color.Transparent;
+            txtRatings.Font = new Font("Segoe Fluent Icons", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtRatings.ForeColor = SystemColors.ControlLightLight;
+            txtRatings.Location = new Point(13, 276);
+            txtRatings.Name = "txtRatings";
+            txtRatings.Size = new Size(84, 27);
+            txtRatings.TabIndex = 51;
+            txtRatings.Text = "Ratings";
+            // 
             // txtClasificacion
             // 
-            txtClasificacion.AutoSize = true;
-            txtClasificacion.BackColor = Color.Transparent;
-            txtClasificacion.Font = new Font("Segoe Fluent Icons", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtClasificacion.ForeColor = SystemColors.ControlLightLight;
-            txtClasificacion.Location = new Point(13, 276);
+            txtClasificacion.Location = new Point(103, 280);
             txtClasificacion.Name = "txtClasificacion";
-            txtClasificacion.Size = new Size(84, 27);
-            txtClasificacion.TabIndex = 51;
-            txtClasificacion.Text = "Ratings";
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(92, 280);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(146, 23);
-            textBox1.TabIndex = 50;
+            txtClasificacion.Size = new Size(135, 23);
+            txtClasificacion.TabIndex = 50;
             // 
             // CargarPelicula
             // 
@@ -337,8 +338,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(671, 521);
+            Controls.Add(txtRatings);
             Controls.Add(txtClasificacion);
-            Controls.Add(textBox1);
             Controls.Add(btnEliminar);
             Controls.Add(btnEditar);
             Controls.Add(btnGuardar);
@@ -396,7 +397,7 @@
         private Button btnEditar;
         private Button btnGuardar;
         private Button btnEliminar;
-        private Label txtClasificacion;
-        private TextBox textBox1;
+        private Label txtRatings;
+        private TextBox txtClasificacion;
     }
 }

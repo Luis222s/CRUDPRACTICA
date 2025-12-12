@@ -132,7 +132,7 @@ namespace CRUDPRACTICA
                 Height = 40,
                 Location = new Point(10, 270),
                 ForeColor = Color.White,
-                Font = new Font("Segoe UI", 9, FontStyle.Bold),
+                Font = new Font("Segoe UI", 15, FontStyle.Bold),
                 TextAlign = ContentAlignment.MiddleCenter,
             };
 
@@ -161,17 +161,7 @@ namespace CRUDPRACTICA
 
         private void BtnDetalles_Click(object sender, EventArgs e)
         {
-            Button btn = sender as Button;
-
-            if (btn != null && btn.Tag != null)
-            {
-                string idPelicula = btn.Tag.ToString();
-
-                // Abrimos el formulario de detalle de la película (FrmPelicula)
-                Pelicula1 detalle = new Pelicula1(idPelicula);
-                detalle.Show();
-                this.Hide(); // Ocultamos la cartelera
-            }
+            
         }
 
 

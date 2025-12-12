@@ -30,20 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Peliculas));
             panel1 = new Panel();
-            label1 = new Label();
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
-            label2 = new Label();
             Btn_Cerrar = new PictureBox();
             Btn_Minimizar = new PictureBox();
             pictureBox3 = new PictureBox();
-            label3 = new Label();
             pictureBox4 = new PictureBox();
-            label4 = new Label();
             pictureBox5 = new PictureBox();
-            label5 = new Label();
             pictureBox6 = new PictureBox();
-            label6 = new Label();
             btn_inicio = new Button();
             btn_cartelera = new Button();
             btn_pelicula = new Button();
@@ -68,20 +62,6 @@
             panel1.Size = new Size(671, 521);
             panel1.TabIndex = 0;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.BackColor = Color.Transparent;
-            label1.Font = new Font("Segoe Fluent Icons", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.White;
-            label1.ImageAlign = ContentAlignment.TopCenter;
-            label1.Location = new Point(92, 142);
-            label1.Name = "label1";
-            label1.Size = new Size(77, 32);
-            label1.TabIndex = 1;
-            label1.Text = "Inicio";
-            label1.TextAlign = ContentAlignment.TopCenter;
-            // 
             // pictureBox1
             // 
             pictureBox1.BackColor = Color.Transparent;
@@ -103,21 +83,6 @@
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox2.TabIndex = 4;
             pictureBox2.TabStop = false;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.BackColor = Color.Transparent;
-            label2.Font = new Font("Segoe Fluent Icons", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.ForeColor = Color.White;
-            label2.ImageAlign = ContentAlignment.TopCenter;
-            label2.Location = new Point(92, 210);
-            label2.Name = "label2";
-            label2.Size = new Size(122, 32);
-            label2.TabIndex = 3;
-            label2.Text = "Cartelera";
-            label2.TextAlign = ContentAlignment.TopCenter;
-            label2.Click += label2_Click;
             // 
             // Btn_Cerrar
             // 
@@ -156,20 +121,6 @@
             pictureBox3.TabIndex = 18;
             pictureBox3.TabStop = false;
             // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.BackColor = Color.Transparent;
-            label3.Font = new Font("Segoe Fluent Icons", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.ForeColor = Color.White;
-            label3.ImageAlign = ContentAlignment.TopCenter;
-            label3.Location = new Point(92, 274);
-            label3.Name = "label3";
-            label3.Size = new Size(121, 32);
-            label3.TabIndex = 17;
-            label3.Text = "Peliculas";
-            label3.TextAlign = ContentAlignment.TopCenter;
-            // 
             // pictureBox4
             // 
             pictureBox4.BackColor = Color.Transparent;
@@ -180,20 +131,6 @@
             pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox4.TabIndex = 20;
             pictureBox4.TabStop = false;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.BackColor = Color.Transparent;
-            label4.Font = new Font("Segoe Fluent Icons", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.ForeColor = Color.White;
-            label4.ImageAlign = ContentAlignment.TopCenter;
-            label4.Location = new Point(92, 339);
-            label4.Name = "label4";
-            label4.Size = new Size(93, 32);
-            label4.TabIndex = 19;
-            label4.Text = "Ventas";
-            label4.TextAlign = ContentAlignment.TopCenter;
             // 
             // pictureBox5
             // 
@@ -206,20 +143,6 @@
             pictureBox5.TabIndex = 22;
             pictureBox5.TabStop = false;
             // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.BackColor = Color.Transparent;
-            label5.Font = new Font("Segoe Fluent Icons", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.ForeColor = Color.White;
-            label5.ImageAlign = ContentAlignment.MiddleLeft;
-            label5.Location = new Point(92, 406);
-            label5.Name = "label5";
-            label5.Size = new Size(124, 29);
-            label5.TabIndex = 21;
-            label5.Text = "Acerca De";
-            label5.TextAlign = ContentAlignment.MiddleLeft;
-            // 
             // pictureBox6
             // 
             pictureBox6.BackColor = Color.Transparent;
@@ -231,20 +154,6 @@
             pictureBox6.TabIndex = 24;
             pictureBox6.TabStop = false;
             // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.BackColor = Color.Transparent;
-            label6.Font = new Font("Segoe Fluent Icons", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.ForeColor = Color.White;
-            label6.ImageAlign = ContentAlignment.TopCenter;
-            label6.Location = new Point(92, 521);
-            label6.Name = "label6";
-            label6.Size = new Size(68, 32);
-            label6.TabIndex = 23;
-            label6.Text = "Salir";
-            label6.TextAlign = ContentAlignment.TopCenter;
-            // 
             // btn_inicio
             // 
             btn_inicio.BackColor = Color.Transparent;
@@ -253,10 +162,15 @@
             btn_inicio.FlatAppearance.MouseDownBackColor = Color.FromArgb(64, 64, 64);
             btn_inicio.FlatAppearance.MouseOverBackColor = Color.FromArgb(64, 64, 64);
             btn_inicio.FlatStyle = FlatStyle.Flat;
-            btn_inicio.Location = new Point(82, 142);
+            btn_inicio.Font = new Font("Segoe Fluent Icons", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_inicio.ForeColor = SystemColors.ControlLight;
+            btn_inicio.ImageAlign = ContentAlignment.TopCenter;
+            btn_inicio.Location = new Point(82, 133);
             btn_inicio.Name = "btn_inicio";
-            btn_inicio.Size = new Size(139, 32);
+            btn_inicio.Size = new Size(139, 41);
             btn_inicio.TabIndex = 25;
+            btn_inicio.Text = "Inicio";
+            btn_inicio.TextAlign = ContentAlignment.TopCenter;
             btn_inicio.UseVisualStyleBackColor = false;
             btn_inicio.Click += btn_inicio_Click;
             // 
@@ -267,10 +181,13 @@
             btn_cartelera.FlatAppearance.MouseDownBackColor = Color.FromArgb(64, 64, 64);
             btn_cartelera.FlatAppearance.MouseOverBackColor = Color.FromArgb(64, 64, 64);
             btn_cartelera.FlatStyle = FlatStyle.Flat;
-            btn_cartelera.Location = new Point(82, 210);
+            btn_cartelera.Font = new Font("Segoe Fluent Icons", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_cartelera.ForeColor = SystemColors.Control;
+            btn_cartelera.Location = new Point(82, 200);
             btn_cartelera.Name = "btn_cartelera";
-            btn_cartelera.Size = new Size(139, 32);
+            btn_cartelera.Size = new Size(139, 42);
             btn_cartelera.TabIndex = 26;
+            btn_cartelera.Text = "Cartelera";
             btn_cartelera.UseVisualStyleBackColor = false;
             btn_cartelera.Click += btn_cartelera_Click;
             // 
@@ -281,11 +198,15 @@
             btn_pelicula.FlatAppearance.MouseDownBackColor = Color.FromArgb(64, 64, 64);
             btn_pelicula.FlatAppearance.MouseOverBackColor = Color.FromArgb(64, 64, 64);
             btn_pelicula.FlatStyle = FlatStyle.Flat;
-            btn_pelicula.Location = new Point(82, 274);
+            btn_pelicula.Font = new Font("Segoe Fluent Icons", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_pelicula.ForeColor = Color.White;
+            btn_pelicula.Location = new Point(82, 264);
             btn_pelicula.Name = "btn_pelicula";
-            btn_pelicula.Size = new Size(139, 32);
+            btn_pelicula.Size = new Size(139, 42);
             btn_pelicula.TabIndex = 27;
+            btn_pelicula.Text = "Peliculas";
             btn_pelicula.UseVisualStyleBackColor = false;
+            btn_pelicula.Click += btn_pelicula_Click;
             // 
             // btn_ventas
             // 
@@ -294,10 +215,13 @@
             btn_ventas.FlatAppearance.MouseDownBackColor = Color.FromArgb(64, 64, 64);
             btn_ventas.FlatAppearance.MouseOverBackColor = Color.FromArgb(64, 64, 64);
             btn_ventas.FlatStyle = FlatStyle.Flat;
-            btn_ventas.Location = new Point(82, 339);
+            btn_ventas.Font = new Font("Segoe Fluent Icons", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_ventas.ForeColor = SystemColors.ControlLightLight;
+            btn_ventas.Location = new Point(82, 332);
             btn_ventas.Name = "btn_ventas";
-            btn_ventas.Size = new Size(139, 32);
+            btn_ventas.Size = new Size(139, 39);
             btn_ventas.TabIndex = 28;
+            btn_ventas.Text = "Ventas";
             btn_ventas.UseVisualStyleBackColor = false;
             // 
             // btn_acerca
@@ -307,10 +231,13 @@
             btn_acerca.FlatAppearance.MouseDownBackColor = Color.FromArgb(64, 64, 64);
             btn_acerca.FlatAppearance.MouseOverBackColor = Color.FromArgb(64, 64, 64);
             btn_acerca.FlatStyle = FlatStyle.Flat;
-            btn_acerca.Location = new Point(82, 406);
+            btn_acerca.Font = new Font("Segoe Fluent Icons", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_acerca.ForeColor = SystemColors.Control;
+            btn_acerca.Location = new Point(82, 397);
             btn_acerca.Name = "btn_acerca";
-            btn_acerca.Size = new Size(139, 32);
+            btn_acerca.Size = new Size(139, 41);
             btn_acerca.TabIndex = 29;
+            btn_acerca.Text = "Acerca de";
             btn_acerca.UseVisualStyleBackColor = false;
             btn_acerca.Click += btn_acerca_Click;
             // 
@@ -321,10 +248,13 @@
             btn_salir.FlatAppearance.MouseDownBackColor = Color.FromArgb(64, 64, 64);
             btn_salir.FlatAppearance.MouseOverBackColor = Color.FromArgb(64, 64, 64);
             btn_salir.FlatStyle = FlatStyle.Flat;
-            btn_salir.Location = new Point(82, 521);
+            btn_salir.Font = new Font("Segoe Fluent Icons", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_salir.ForeColor = SystemColors.ControlLight;
+            btn_salir.Location = new Point(82, 510);
             btn_salir.Name = "btn_salir";
-            btn_salir.Size = new Size(139, 32);
+            btn_salir.Size = new Size(139, 43);
             btn_salir.TabIndex = 30;
+            btn_salir.Text = "Salir";
             btn_salir.UseVisualStyleBackColor = false;
             btn_salir.Click += btn_salir_Click;
             // 
@@ -334,18 +264,11 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(901, 565);
-            Controls.Add(label6);
             Controls.Add(btn_salir);
-            Controls.Add(label5);
             Controls.Add(btn_acerca);
-            Controls.Add(label4);
             Controls.Add(btn_ventas);
-            Controls.Add(label3);
             Controls.Add(btn_pelicula);
-            Controls.Add(label2);
             Controls.Add(btn_cartelera);
-            Controls.Add(label1);
-            Controls.Add(btn_inicio);
             Controls.Add(pictureBox6);
             Controls.Add(pictureBox5);
             Controls.Add(pictureBox4);
@@ -355,9 +278,12 @@
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
             Controls.Add(panel1);
+            Controls.Add(btn_inicio);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Peliculas";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Peliculas";
+            Load += Peliculas_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)Btn_Cerrar).EndInit();
@@ -367,26 +293,19 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
 
         private Panel panel1;
-        private Label label1;
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
-        private Label label2;
         private PictureBox Btn_Cerrar;
         private PictureBox Btn_Minimizar;
         private PictureBox pictureBox3;
-        private Label label3;
         private PictureBox pictureBox4;
-        private Label label4;
         private PictureBox pictureBox5;
-        private Label label5;
         private PictureBox pictureBox6;
-        private Label label6;
         private Button btn_inicio;
         private Button btn_cartelera;
         private Button btn_pelicula;

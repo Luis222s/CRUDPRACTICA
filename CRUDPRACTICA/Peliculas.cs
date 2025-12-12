@@ -47,11 +47,6 @@ namespace CapaPresentacion
             AbrirFormHijo(new Home());
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btn_cartelera_Click(object sender, EventArgs e)
         {
             AbrirFormHijo(new Cartelera());
@@ -70,6 +65,16 @@ namespace CapaPresentacion
             formLogin.Show();
 
             this.Hide();
+        }
+
+        private void btn_pelicula_Click(object sender, EventArgs e)
+        {
+            AbrirFormHijo(new CargarPelicula());
+        }
+
+        private void Peliculas_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
