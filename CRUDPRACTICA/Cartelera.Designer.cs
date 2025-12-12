@@ -42,6 +42,7 @@
             Btn_Cerrar = new PictureBox();
             panel1 = new Panel();
             button1 = new Button();
+            flowLayoutPanelCartelera = new FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -56,7 +57,7 @@
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Segoe Fluent Icons", 30F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.ButtonFace;
-            label1.Location = new Point(312, 148);
+            label1.Location = new Point(312, 62);
             label1.Name = "label1";
             label1.Size = new Size(304, 40);
             label1.TabIndex = 0;
@@ -183,9 +184,9 @@
             Btn_Minimizar.BackColor = Color.Transparent;
             Btn_Minimizar.Cursor = Cursors.Hand;
             Btn_Minimizar.Image = (Image)resources.GetObject("Btn_Minimizar.Image");
-            Btn_Minimizar.Location = new Point(798, 12);
+            Btn_Minimizar.Location = new Point(718, 265);
             Btn_Minimizar.Name = "Btn_Minimizar";
-            Btn_Minimizar.Size = new Size(38, 29);
+            Btn_Minimizar.Size = new Size(38, 10);
             Btn_Minimizar.SizeMode = PictureBoxSizeMode.Zoom;
             Btn_Minimizar.TabIndex = 13;
             Btn_Minimizar.TabStop = false;
@@ -196,9 +197,9 @@
             Btn_Cerrar.BackColor = Color.Transparent;
             Btn_Cerrar.Cursor = Cursors.Hand;
             Btn_Cerrar.Image = (Image)resources.GetObject("Btn_Cerrar.Image");
-            Btn_Cerrar.Location = new Point(861, 12);
+            Btn_Cerrar.Location = new Point(783, 265);
             Btn_Cerrar.Name = "Btn_Cerrar";
-            Btn_Cerrar.Size = new Size(27, 29);
+            Btn_Cerrar.Size = new Size(27, 10);
             Btn_Cerrar.SizeMode = PictureBoxSizeMode.Zoom;
             Btn_Cerrar.TabIndex = 14;
             Btn_Cerrar.TabStop = false;
@@ -215,7 +216,7 @@
             // 
             // button1
             // 
-            button1.BackColor = SystemColors.ActiveCaptionText;
+            button1.BackColor = Color.Transparent;
             button1.Cursor = Cursors.Hand;
             button1.FlatAppearance.BorderSize = 0;
             button1.FlatAppearance.MouseDownBackColor = Color.FromArgb(64, 64, 64);
@@ -227,9 +228,16 @@
             button1.Name = "button1";
             button1.Size = new Size(75, 32);
             button1.TabIndex = 16;
-            button1.Text = "AcercaDe";
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
+            // 
+            // flowLayoutPanelCartelera
+            // 
+            flowLayoutPanelCartelera.BackColor = Color.Transparent;
+            flowLayoutPanelCartelera.Location = new Point(12, 131);
+            flowLayoutPanelCartelera.Name = "flowLayoutPanelCartelera";
+            flowLayoutPanelCartelera.Size = new Size(877, 422);
+            flowLayoutPanelCartelera.TabIndex = 17;
             // 
             // Cartelera
             // 
@@ -238,10 +246,9 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(901, 565);
+            Controls.Add(flowLayoutPanelCartelera);
             Controls.Add(button1);
             Controls.Add(panel1);
-            Controls.Add(Btn_Cerrar);
-            Controls.Add(Btn_Minimizar);
             Controls.Add(Btn_Peli4);
             Controls.Add(Btn_Peli3);
             Controls.Add(Btn_Peli2);
@@ -251,6 +258,8 @@
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
             Controls.Add(label1);
+            Controls.Add(Btn_Cerrar);
+            Controls.Add(Btn_Minimizar);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Cartelera";
             StartPosition = FormStartPosition.CenterScreen;
@@ -281,5 +290,6 @@
         private PictureBox Btn_Cerrar;
         private Panel panel1;
         private Button button1;
+        private FlowLayoutPanel flowLayoutPanelCartelera;
     }
 }

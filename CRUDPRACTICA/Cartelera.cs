@@ -64,24 +64,18 @@ namespace CRUDPRACTICA
 
         private void Btn_Cerrar_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+           
         }
 
         private void Btn_Minimizar_Click(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Minimized;
+           
         }
 
-        [DllImport("user32.dll", EntryPoint = "ReleaseCapture")]
-        private extern static void ReleaseCapture();
-        [DllImport("user32.dll", EntryPoint = "SendMessage")]
-
-        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
 
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0x0f012, 0);
+            
         }
 
         private void Btn_Peli1_Click(object sender, EventArgs e)
@@ -119,9 +113,7 @@ namespace CRUDPRACTICA
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Acercade go = new Acercade();
-            go.Show();
-            this.Hide();
+            
         }
     }
 }
