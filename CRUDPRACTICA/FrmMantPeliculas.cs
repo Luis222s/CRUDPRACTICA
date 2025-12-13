@@ -116,7 +116,7 @@ namespace CapaPresentacion
 
                 DataGridViewRow fila = dgvPeliculas.CurrentRow;
 
-                // Cargar datos
+                //TODO: Cargar datos de texto
                 IdPeliculaSeleccionada = fila.Cells["IdPelicula"].Value.ToString();
                 txtTitulo.Text = fila.Cells["Titulo"].Value.ToString();
                 txtGenero.Text = fila.Cells["Genero"].Value.ToString();
@@ -125,18 +125,19 @@ namespace CapaPresentacion
                 txtSinopsis.Text = fila.Cells["Sinopsis"].Value.ToString();
                 dtpFecha.Value = Convert.ToDateTime(fila.Cells["FechaEstreno"].Value);
 
-                // --- LÓGICA DE CARGA DE IMAGEN ---
+                // --- CORRECCIÓN EN LA CARGA DE IMAGEN ---
                 if (fila.Cells["Imagen"].Value != DBNull.Value && fila.Cells["Imagen"].Value != null)
                 {
                     byte[] imgBytes = (byte[])fila.Cells["Imagen"].Value;
-                    using (System.IO.MemoryStream ms = new System.IO.MemoryStream(imgBytes))
-                    {
-                        pbPoster.Image = Image.FromStream(ms);
-                    }
+
+                    // NO usamos 'using' aquí. Dejamos el Stream abierto para que el PictureBox
+                    // pueda usar la imagen sin errores al momento de Guardar.
+                    System.IO.MemoryStream ms = new System.IO.MemoryStream(imgBytes);
+                    pbPoster.Image = Image.FromStream(ms);
                 }
                 else
                 {
-                    pbPoster.Image = null; // Si no hay imagen, PictureBox vacío
+                    pbPoster.Image = null; // Si no hay imagen en la BD, lo deja vacío
                 }
             }
             else
@@ -144,6 +145,7 @@ namespace CapaPresentacion
                 MessageBox.Show("Por favor, selecciona la película a editar.", "Advertencia");
             }
         }
+        
 
         private void btnGuardar_Click_1(object sender, EventArgs e)
         {
@@ -237,7 +239,11 @@ namespace CapaPresentacion
 
             if (openFile.ShowDialog() == DialogResult.OK)
             {
-                pbPoster.Image = Image.FromFile(openFile.FileName);
+                // Forma segura que no bloquea el archivo original en el disco
+                using (var stream = new System.IO.FileStream(openFile.FileName, System.IO.FileMode.Open, System.IO.FileAccess.Read))
+                {
+                    pbPoster.Image = Image.FromStream(stream);
+                }
             }
         }
 

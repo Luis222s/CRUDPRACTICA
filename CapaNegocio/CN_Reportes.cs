@@ -14,7 +14,7 @@ namespace CapaNegocio
 
         public DataTable VerReporte()
         {
-            return objetoCD.ObtenerDatos();
+            return objetoCD.ObtenerReporteGeneral();
         }
     }
 }

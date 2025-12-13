@@ -49,9 +49,9 @@
             panel1.Controls.Add(button1);
             panel1.Controls.Add(btnMantenimiento);
             panel1.Controls.Add(btnSalir);
-            panel1.Controls.Add(btnReportes);
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(btnCartelera);
+            panel1.Controls.Add(btnReportes);
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
@@ -117,7 +117,7 @@
             btnSalir.FlatStyle = FlatStyle.Flat;
             btnSalir.Font = new Font("Century", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnSalir.ForeColor = Color.White;
-            btnSalir.Location = new Point(63, 689);
+            btnSalir.Location = new Point(63, 585);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(192, 70);
             btnSalir.TabIndex = 3;
@@ -133,7 +133,7 @@
             btnReportes.FlatStyle = FlatStyle.Flat;
             btnReportes.Font = new Font("Century", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnReportes.ForeColor = Color.White;
-            btnReportes.Location = new Point(63, 575);
+            btnReportes.Location = new Point(89, 61);
             btnReportes.Name = "btnReportes";
             btnReportes.Size = new Size(192, 70);
             btnReportes.TabIndex = 2;

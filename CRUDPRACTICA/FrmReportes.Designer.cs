@@ -74,6 +74,7 @@
             lblIngresos.Size = new Size(21, 23);
             lblIngresos.TabIndex = 4;
             lblIngresos.Text = "1";
+            lblIngresos.Click += lblIngresos_Click;
             // 
             // lblTickets
             // 
@@ -84,6 +85,7 @@
             lblTickets.Size = new Size(21, 23);
             lblTickets.TabIndex = 5;
             lblTickets.Text = "2";
+            lblTickets.Click += lblTickets_Click;
             // 
             // lblPelicula
             // 
@@ -94,6 +96,7 @@
             lblPelicula.Size = new Size(91, 23);
             lblPelicula.TabIndex = 6;
             lblPelicula.Text = "Pelicula";
+            lblPelicula.Click += lblPelicula_Click;
             // 
             // panel1
             // 

@@ -36,10 +36,8 @@
             Btn_Minimizar = new PictureBox();
             panel2 = new Panel();
             lnkRegistro = new LinkLabel();
-            pictureBox1 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)Btn_Cerrar1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Btn_Minimizar).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // btn_login
@@ -133,24 +131,12 @@
             lnkRegistro.Text = "¿NO TIENES UNA CUENTA?, CREATE UNA AQUI";
             lnkRegistro.LinkClicked += lnkRegistro_LinkClicked;
             // 
-            // pictureBox1
-            // 
-            pictureBox1.BorderStyle = BorderStyle.FixedSingle;
-            pictureBox1.Image = Properties.Resources.LOGO1;
-            pictureBox1.Location = new Point(322, 12);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(270, 203);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 18;
-            pictureBox1.TabStop = false;
-            // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(899, 621);
-            Controls.Add(pictureBox1);
             Controls.Add(Btn_Cerrar1);
             Controls.Add(Btn_Minimizar);
             Controls.Add(lnkRegistro);
@@ -166,7 +152,6 @@
             Load += Login_Load;
             ((System.ComponentModel.ISupportInitialize)Btn_Cerrar1).EndInit();
             ((System.ComponentModel.ISupportInitialize)Btn_Minimizar).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -180,6 +165,5 @@
         private PictureBox Btn_Minimizar;
         private Panel panel2;
         private LinkLabel lnkRegistro;
-        private PictureBox pictureBox1;
     }
 }

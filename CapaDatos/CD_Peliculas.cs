@@ -91,7 +91,7 @@ namespace CapaDatos
             comando.Parameters.AddWithValue("@clasificacion", clasificacion);
             comando.Parameters.AddWithValue("@fechaEstreno", fecha);
             comando.Parameters.AddWithValue("@sinopsis", sinopsis);
-            comando.Parameters.AddWithValue("@imagen", imagen ?? (object)DBNull.Value); // Manejo seguro de NULL
+            comando.Parameters.Add("@imagen", SqlDbType.VarBinary).Value = imagen ?? (object)DBNull.Value;
 
             comando.ExecuteNonQuery();
             comando.Parameters.Clear();
@@ -111,7 +111,7 @@ namespace CapaDatos
             comando.Parameters.AddWithValue("@duracion", duracion);
             comando.Parameters.AddWithValue("@clasificacion", clasificacion);
             comando.Parameters.AddWithValue("@sinopsis", sinopsis);
-            comando.Parameters.AddWithValue("@imagen", imagen ?? (object)DBNull.Value); // Manejo seguro de NULL en sql
+            comando.Parameters.Add("@imagen", SqlDbType.VarBinary).Value = imagen ?? (object)DBNull.Value;
 
             comando.ExecuteNonQuery();
             comando.Parameters.Clear();

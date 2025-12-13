@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Windows.Forms;
-using CapaNegocio; // Importante para llamar a la lógica
+using CapaNegocio;
 
 namespace CapaPresentacion
 {
@@ -12,13 +12,13 @@ namespace CapaPresentacion
             InitializeComponent();
         }
 
-        // Evento Load: Se ejecuta automáticamente al abrir la ventana
+        // --- CARGA INICIAL ---
         private void FrmReportes_Load(object sender, EventArgs e)
         {
-            CargarDatos();
+            CargarDatosDashboard();
         }
 
-        private void CargarDatos()
+        private void CargarDatosDashboard()
         {
             try
             {
@@ -29,51 +29,61 @@ namespace CapaPresentacion
                 {
                     DataRow fila = tabla.Rows[0];
 
-                    // --- ASIGNACIÓN DE DATOS A LOS LABELS ---
-
-                    // 1. Cantidad de Tickets Vendidos
-                    // Asegúrate de que tu Label se llame 'lblTickets' en el diseño
+                    // 1. CANTIDAD DE TICKETS
+                    // Si en SQL devuelve 0, aquí mostrará "0"
                     lblTickets.Text = fila["CantidadVentas"].ToString();
 
-                    // 2. Total de Dinero Recaudado
-                    // Lo convertimos a decimal para darle formato de moneda ($)
-                    decimal ingresos = Convert.ToDecimal(fila["TotalIngresos"]);
-                    lblIngresos.Text = "$" + ingresos.ToString("N2"); // N2 pone 2 decimales
+                    // 2. TOTAL DINERO
+                    decimal ingresos = 0;
+                    decimal.TryParse(fila["TotalIngresos"].ToString(), out ingresos);
+                    lblIngresos.Text = ingresos.ToString("C2"); // Formato moneda ($)
 
-                    // 3. Película Más Popular
-                    string peli = fila["PeliculaTop"].ToString();
-                    lblPelicula.Text = string.IsNullOrEmpty(peli) ? "Sin datos" : peli;
+                    // 3. PELÍCULA MÁS VENDIDA
+                    // Si no hay ventas, el SQL devuelve "Ninguna"
+                    lblPelicula.Text = fila["PeliculaTop"].ToString();
+                }
+                else
+                {
+                    // Esto solo pasa si el procedimiento SQL no devuelve ninguna fila (raro)
+                    lblTickets.Text = "0";
+                    lblIngresos.Text = "$0.00";
+                    lblPelicula.Text = "---";
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al cargar reporte: " + ex.Message);
+                MessageBox.Show("Error en reporte: " + ex.Message);
             }
         }
 
-        // Botón Cerrar (Si tienes un botón para volver)
-        private void btnCerrar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-        //ir a cartelera
-        private void pictureBox6_Click(object sender, EventArgs e)
-        {
-            Cartelera cartelera = new Cartelera();
-            cartelera.Show();
-            this.Hide();
+        // --- BOTONES Y NAVEGACIÓN ---
 
-        }
-        //minimizar
+
+
+        // Minimizar
         private void pictureBox4_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
-
         }
-        //cerrar
+
+        // Cerrar Aplicación o Formulario
         private void pictureBox3_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void lblTickets_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblPelicula_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblIngresos_Click(object sender, EventArgs e)
+        {
 
         }
     }

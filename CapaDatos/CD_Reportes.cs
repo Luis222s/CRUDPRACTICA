@@ -12,17 +12,16 @@ namespace CapaDatos
     {
         private CD_Conexion conexion = new CD_Conexion();
 
-        public DataTable ObtenerDatos()
+        public DataTable ObtenerReporteGeneral()
         {
-            SqlCommand comando = new SqlCommand();
-            comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "ObtenerReporteGeneral";
-            comando.CommandType = CommandType.StoredProcedure;
-
-            SqlDataReader leer = comando.ExecuteReader();
             DataTable tabla = new DataTable();
-            tabla.Load(leer);
-
+            using (SqlConnection con = conexion.AbrirConexion())
+            {
+                SqlCommand cmd = new SqlCommand("sp_ObtenerReporteGeneral", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataReader leer = cmd.ExecuteReader();
+                tabla.Load(leer);
+            }
             conexion.CerrarConexion();
             return tabla;
         }

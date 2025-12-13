@@ -16,7 +16,7 @@ namespace CapaPresentacion
 
         }
 
-        // --- MÉTODO MAESTRO PARA ABRIR EN PANEL (Dashboard) ---
+        //TODO:MÉTODO MAESTRO PARA ABRIR EN PANEL (Dashboard) ---
         private void AbrirFormulario(Form formularioHijo)
         {
             // 1. Si ya hay algo en el panel, lo quitamos

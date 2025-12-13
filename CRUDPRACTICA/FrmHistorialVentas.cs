@@ -30,7 +30,7 @@ namespace CapaPresentacion
             CargarVentasCabecera();
         }
 
-        // --- 1. CARGAR LISTA DE VENTAS (ARRIBA) ---
+        // TODO: CARGAR LISTA DE VENTAS (ARRIBA) ---
         private void CargarVentasCabecera()
         {
             try
