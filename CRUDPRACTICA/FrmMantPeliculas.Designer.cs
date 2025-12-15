@@ -47,21 +47,21 @@
             btnEliminar = new Button();
             dgvPeliculas = new DataGridView();
             panel1 = new Panel();
+            panel2 = new Panel();
+            btnCancelar = new Button();
             btnQuitarImagen = new Button();
             btnSubirImagen = new Button();
             pbPoster = new PictureBox();
             label5 = new Label();
             Btn_Cerrar = new PictureBox();
             Btn_Minimizar = new PictureBox();
-            btnCancelar = new Button();
-            panel2 = new Panel();
             panel3 = new Panel();
             ((System.ComponentModel.ISupportInitialize)dgvPeliculas).BeginInit();
             panel1.SuspendLayout();
+            panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbPoster).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Btn_Cerrar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Btn_Minimizar).BeginInit();
-            panel2.SuspendLayout();
             panel3.SuspendLayout();
             SuspendLayout();
             // 
@@ -234,7 +234,7 @@
             // dgvPeliculas
             // 
             dgvPeliculas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvPeliculas.Location = new Point(576, 78);
+            dgvPeliculas.Location = new Point(576, 66);
             dgvPeliculas.Name = "dgvPeliculas";
             dgvPeliculas.RowHeadersWidth = 51;
             dgvPeliculas.Size = new Size(1001, 950);
@@ -244,14 +244,17 @@
             // panel1
             // 
             panel1.BackgroundImage = Properties.Resources.IMAGEN_DE_RESGISTRO;
-            panel1.Controls.Add(panel2);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(label4);
             panel1.Controls.Add(dtpFecha);
             panel1.Controls.Add(txtSinopsis);
+            panel1.Controls.Add(btnQuitarImagen);
+            panel1.Controls.Add(btnSubirImagen);
+            panel1.Controls.Add(pbPoster);
             panel1.Controls.Add(label6);
+            panel1.Controls.Add(label5);
             panel1.Controls.Add(label7);
             panel1.Controls.Add(txtClasificacion);
             panel1.Controls.Add(txtTitulo);
@@ -262,12 +265,35 @@
             panel1.Size = new Size(484, 854);
             panel1.TabIndex = 19;
             // 
+            // panel2
+            // 
+            panel2.BackColor = Color.FromArgb(64, 64, 64);
+            panel2.Controls.Add(btnCancelar);
+            panel2.Controls.Add(btnNuevo);
+            panel2.Location = new Point(64, 902);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(473, 84);
+            panel2.TabIndex = 34;
+            // 
+            // btnCancelar
+            // 
+            btnCancelar.BackColor = Color.LightGray;
+            btnCancelar.FlatAppearance.BorderSize = 0;
+            btnCancelar.ForeColor = Color.Black;
+            btnCancelar.Location = new Point(279, 13);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new Size(119, 58);
+            btnCancelar.TabIndex = 32;
+            btnCancelar.Text = "CANCELAR";
+            btnCancelar.UseVisualStyleBackColor = false;
+            btnCancelar.Click += btnCancelar_Click_1;
+            // 
             // btnQuitarImagen
             // 
             btnQuitarImagen.BackColor = Color.DarkGray;
             btnQuitarImagen.FlatAppearance.BorderSize = 0;
             btnQuitarImagen.Font = new Font("Century", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnQuitarImagen.Location = new Point(590, 622);
+            btnQuitarImagen.Location = new Point(320, 638);
             btnQuitarImagen.Name = "btnQuitarImagen";
             btnQuitarImagen.Size = new Size(137, 61);
             btnQuitarImagen.TabIndex = 17;
@@ -280,9 +306,9 @@
             btnSubirImagen.BackColor = Color.OliveDrab;
             btnSubirImagen.FlatAppearance.BorderSize = 0;
             btnSubirImagen.Font = new Font("Century", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnSubirImagen.Location = new Point(626, 555);
+            btnSubirImagen.Location = new Point(320, 540);
             btnSubirImagen.Name = "btnSubirImagen";
-            btnSubirImagen.Size = new Size(126, 61);
+            btnSubirImagen.Size = new Size(137, 61);
             btnSubirImagen.TabIndex = 16;
             btnSubirImagen.Text = "Subir Imagen";
             btnSubirImagen.UseVisualStyleBackColor = false;
@@ -290,9 +316,9 @@
             // 
             // pbPoster
             // 
-            pbPoster.Location = new Point(626, 301);
+            pbPoster.Location = new Point(37, 447);
             pbPoster.Name = "pbPoster";
-            pbPoster.Size = new Size(101, 375);
+            pbPoster.Size = new Size(247, 375);
             pbPoster.SizeMode = PictureBoxSizeMode.Zoom;
             pbPoster.TabIndex = 15;
             pbPoster.TabStop = false;
@@ -302,7 +328,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Century", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(603, 477);
+            label5.Location = new Point(126, 405);
             label5.Name = "label5";
             label5.Size = new Size(90, 23);
             label5.TabIndex = 14;
@@ -336,38 +362,15 @@
             Btn_Minimizar.TabStop = false;
             Btn_Minimizar.Click += Btn_Minimizar_Click;
             // 
-            // btnCancelar
-            // 
-            btnCancelar.BackColor = Color.LightGray;
-            btnCancelar.FlatAppearance.BorderSize = 0;
-            btnCancelar.ForeColor = Color.Black;
-            btnCancelar.Location = new Point(279, 13);
-            btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(119, 58);
-            btnCancelar.TabIndex = 32;
-            btnCancelar.Text = "CANCELAR";
-            btnCancelar.UseVisualStyleBackColor = false;
-            btnCancelar.Click += btnCancelar_Click_1;
-            // 
-            // panel2
-            // 
-            panel2.BackColor = Color.FromArgb(64, 64, 64);
-            panel2.Controls.Add(btnCancelar);
-            panel2.Controls.Add(btnNuevo);
-            panel2.Location = new Point(3, 619);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(484, 84);
-            panel2.TabIndex = 34;
-            // 
             // panel3
             // 
             panel3.BackColor = Color.FromArgb(64, 64, 64);
             panel3.Controls.Add(btnGuardar);
             panel3.Controls.Add(btnEditar);
             panel3.Controls.Add(btnEliminar);
-            panel3.Location = new Point(64, 872);
+            panel3.Location = new Point(64, 1054);
             panel3.Name = "panel3";
-            panel3.Size = new Size(484, 84);
+            panel3.Size = new Size(473, 84);
             panel3.TabIndex = 35;
             // 
             // FrmMantPeliculas
@@ -376,28 +379,24 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.Captura_de_pantalla_2025_12_07_2005172;
             ClientSize = new Size(1615, 1136);
+            Controls.Add(panel2);
             Controls.Add(panel3);
             Controls.Add(Btn_Cerrar);
             Controls.Add(Btn_Minimizar);
             Controls.Add(panel1);
             Controls.Add(dgvPeliculas);
-            Controls.Add(pbPoster);
-            Controls.Add(btnSubirImagen);
-            Controls.Add(btnQuitarImagen);
-            Controls.Add(label5);
             FormBorderStyle = FormBorderStyle.None;
             Name = "FrmMantPeliculas";
             Text = "GESTIONAR PELICULAS";
             ((System.ComponentModel.ISupportInitialize)dgvPeliculas).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pbPoster).EndInit();
             ((System.ComponentModel.ISupportInitialize)Btn_Cerrar).EndInit();
             ((System.ComponentModel.ISupportInitialize)Btn_Minimizar).EndInit();
-            panel2.ResumeLayout(false);
             panel3.ResumeLayout(false);
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
